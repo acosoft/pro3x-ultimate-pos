@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/home/aco/Dokumenti/Mali%20zeleni/Projekti/Fiskalizacija/Fiskalizacija-WSDL_v1.1.2/wsdl/FiskalizacijaService.wsdl" uri="xml-resources/web-service-references/FiskalizacijaService/wsdl/FiskalizacijaService.wsdl"/>
+    <system systemId="file:/home/aco/Dokumenti/Mali%20zeleni/Projekti/Fiskalizacija/Fiskalizacija-WSDL_v1.1.2/schema/FiskalizacijaSchema.xsd" uri="xml-resources/web-service-references/FiskalizacijaService/schema/FiskalizacijaSchema.xsd"/>
+    <system systemId="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd" uri="xml-resources/web-service-references/FiskalizacijaService/wsdl/www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
+</catalog>

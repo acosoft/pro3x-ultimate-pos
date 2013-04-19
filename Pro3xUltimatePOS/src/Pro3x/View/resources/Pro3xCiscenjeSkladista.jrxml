@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ispis računa" pageWidth="214" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="184" leftMargin="15" rightMargin="15" topMargin="10" bottomMargin="45" isFloatColumnFooter="true" isIgnorePagination="true">
+	<parameter name="Logo" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="Zaglavlje" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Datum" class="java.lang.String"/>
+	<parameter name="Vrijednost" class="java.lang.Double" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString language="ejbql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="artikal" class="Acosoft.Processing.DataBox.Roba">
+		<fieldDescription><![CDATA[artikal]]></fieldDescription>
+	</field>
+	<field name="kolicina" class="java.lang.Double">
+		<fieldDescription><![CDATA[kolicina]]></fieldDescription>
+	</field>
+	<field name="mjera" class="java.lang.String">
+		<fieldDescription><![CDATA[mjera]]></fieldDescription>
+	</field>
+	<field name="cijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijena]]></fieldDescription>
+	</field>
+	<field name="zaokruzenaCijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[zaokruzenaCijena]]></fieldDescription>
+	</field>
+	<variable name="ukupnaKolicina" class="java.lang.Double" resetType="Group" resetGroup="grupiranje po naziv" calculation="Sum">
+		<variableExpression><![CDATA[$F{kolicina}]]></variableExpression>
+	</variable>
+	<variable name="sviKolicina" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{kolicina}]]></variableExpression>
+	</variable>
+	<variable name="svaCijena" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[new Double($F{cijena}.doubleValue() * $F{zaokruzenaCijena}.doubleValue())]]></variableExpression>
+	</variable>
+	<group name="grupiranje po naziv">
+		<groupExpression><![CDATA[$F{artikal}]]></groupExpression>
+		<groupHeader>
+			<band height="13">
+				<textField>
+					<reportElement x="2" y="1" width="86" height="12"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{artikal}.getNaziv()]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupiranje po naziv" pattern="###0.00;-###0.00">
+					<reportElement x="88" y="1" width="40" height="12"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{ukupnaKolicina}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="128" y="1" width="54" height="12"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{cijena}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="148">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="2" y="60" width="182" height="64" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean(!$P{Zaglavlje}.isEmpty())]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top" markup="none">
+					<font fontName="Tahoma" size="8" isBold="true" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{Zaglavlje}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RealSize" hAlign="Center">
+				<reportElement x="0" y="0" width="184" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{Logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="2" y="124" width="100" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Datum: " + $P{Datum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="13">
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="0" width="86" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Naziv artikla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="128" y="0" width="54" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cijena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="88" y="0" width="40" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Količina]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="12" width="184" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="15">
+			<line>
+				<reportElement x="0" y="2" width="184" height="1"/>
+			</line>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement x="128" y="3" width="54" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$P{Vrijednost}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="grupiranje po naziv" pattern="###0.00;-###0.00">
+				<reportElement x="88" y="3" width="40" height="12">
+					<printWhenExpression><![CDATA[new Boolean($P{Vrijednost} != null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sviKolicina}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="3" width="86" height="12" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean($P{Vrijednost} != null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoices" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="56">
+	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="lokacija" class="java.lang.String">
+		<fieldDescription><![CDATA[lokacija]]></fieldDescription>
+	</field>
+	<field name="adresa" class="java.lang.String">
+		<fieldDescription><![CDATA[adresa]]></fieldDescription>
+	</field>
+	<field name="maticniBroj" class="java.lang.String">
+		<fieldDescription><![CDATA[maticniBroj]]></fieldDescription>
+	</field>
+	<field name="izdan" class="java.util.Date">
+		<fieldDescription><![CDATA[izdan]]></fieldDescription>
+	</field>
+	<field name="napomena" class="java.lang.String">
+		<fieldDescription><![CDATA[napomena]]></fieldDescription>
+	</field>
+	<field name="naziv" class="java.lang.String">
+		<fieldDescription><![CDATA[naziv]]></fieldDescription>
+	</field>
+	<field name="oznaka" class="java.lang.String">
+		<fieldDescription><![CDATA[oznaka]]></fieldDescription>
+	</field>
+	<field name="valuta" class="java.util.Date">
+		<fieldDescription><![CDATA[valuta]]></fieldDescription>
+	</field>
+	<field name="kljuc" class="java.lang.String">
+		<fieldDescription><![CDATA[kljuc]]></fieldDescription>
+	</field>
+	<field name="fiskalnaLokacija" class="java.lang.String">
+		<fieldDescription><![CDATA[fiskalnaLokacija]]></fieldDescription>
+	</field>
+	<field name="fisklaniUredaj" class="java.lang.String">
+		<fieldDescription><![CDATA[fisklaniUredaj]]></fieldDescription>
+	</field>
+	<field name="porezneStavke" class="java.util.List">
+		<fieldDescription><![CDATA[porezneStavke]]></fieldDescription>
+	</field>
+	<field name="stavke" class="java.util.List">
+		<fieldDescription><![CDATA[stavke]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<field name="zaglavlje" class="java.lang.String">
+		<fieldDescription><![CDATA[zaglavlje]]></fieldDescription>
+	</field>
+	<field name="zki" class="java.lang.String">
+		<fieldDescription><![CDATA[zki]]></fieldDescription>
+	</field>
+	<field name="jir" class="java.lang.String">
+		<fieldDescription><![CDATA[jir]]></fieldDescription>
+	</field>
+	<field name="operater" class="Pro3x.Fiscal.Model.Operater">
+		<fieldDescription><![CDATA[operater]]></fieldDescription>
+	</field>
+	<field name="template" class="Acosoft.Processing.DataBox.Template">
+		<fieldDescription><![CDATA[template]]></fieldDescription>
+	</field>
+	<group name="Napomena">
+		<groupExpression><![CDATA[$F{oznaka}]]></groupExpression>
+		<groupFooter>
+			<band height="82">
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="0" y="15" width="539" height="15"/>
+					<textElement markup="styled">
+						<font fontName="Ubuntu" size="10"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{napomena}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="72" width="539" height="10" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[Acosoft.Processing.Pro3Postavke.getPro3xPromo()]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Ubuntu" size="8"/>
+					</textElement>
+					<text><![CDATA[www.pro3x.com | www.mali-zeleni.hr]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="30" width="539" height="42" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[Acosoft.Processing.Pro3Postavke.getPro3xPromo()]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Ubuntu" size="10"/>
+					</textElement>
+					<text><![CDATA[Pro3x Ultimate POS]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Invoices" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{kljuc}]]></groupExpression>
+		<groupHeader>
+			<band height="271">
+				<textField isStretchWithOverflow="true">
+					<reportElement x="304" y="60" width="198" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{template}.getOznakaRacuna() + ": " + $F{oznaka} + " / " + $F{fiskalnaLokacija} + " / " + $F{fisklaniUredaj}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="304" y="135" width="198" height="15" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["OIB: " + $F{maticniBroj}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="304" y="105" width="198" height="30" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Kupac]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="304" y="150" width="198" height="15" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{naziv}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="304" y="165" width="198" height="15" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{adresa}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="304" y="180" width="198" height="15" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{lokacija}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="359" y="255" width="60" height="15"/>
+					<textElement textAlignment="Center">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[Iznos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="419" y="255" width="60" height="15"/>
+					<textElement textAlignment="Center">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[Popust %]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="479" y="255" width="60" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[Ukupno ]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="270" width="539" height="1"/>
+				</line>
+				<image scaleImage="FillFrame" hAlign="Left" isUsingCache="true">
+					<reportElement x="0" y="0" width="198" height="60"/>
+					<imageExpression class="java.io.InputStream"><![CDATA[Acosoft.Processing.Pro3Postavke.getLogoStream()]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="0" y="60" width="198" height="75" isRemoveLineWhenBlank="true"/>
+					<textElement markup="none">
+						<font fontName="Ubuntu" size="12"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{zaglavlje}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="381" y="90" width="121" height="15" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean($F{valuta} != null)]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{valuta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="304" y="90" width="77" height="15" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean($F{valuta} != null)]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Rok plaćanja:]]></text>
+				</staticText>
+				<textField pattern="dd.MM.yyyy | HH:mm">
+					<reportElement x="350" y="75" width="152" height="15" isRemoveLineWhenBlank="true"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{izdan}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="304" y="75" width="46" height="15" isRemoveLineWhenBlank="true"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Datum:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="299" y="255" width="60" height="15"/>
+					<textElement textAlignment="Center">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[Cijena]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="209" y="255" width="90" height="15"/>
+					<textElement textAlignment="Center">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[Količina]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="255" width="209" height="15"/>
+					<textElement textAlignment="Left">
+						<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[ Naziv]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="135">
+				<subreport>
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="50" width="198" height="15"/>
+					<dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{porezneStavke})]]></dataSourceExpression>
+					<subreportExpression class="java.io.InputStream"><![CDATA[Pro3x.View.SimpleInvoice.class.getResourceAsStream("reports/invoice-tax-items.jasper")]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement x="293" y="1" width="88" height="20"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="Ubuntu" size="16" isBold="false" pdfEncoding="Cp1250"/>
+					</textElement>
+					<text><![CDATA[Ukupno]]></text>
+				</staticText>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="381" y="1" width="134" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Bottom">
+						<font fontName="Ubuntu" size="16" isBold="false" pdfEncoding="Cp1250"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="0" width="539" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="515" y="1" width="24" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Bottom">
+						<font fontName="Ubuntu" size="16" isBold="false"/>
+					</textElement>
+					<text><![CDATA[KN]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="0" y="95" width="198" height="10" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean($F{template}.isFiskalnaTransakcija())]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="Ubuntu" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["JIR: " + (($F{jir} == null)?"Nedostupan":$F{jir})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="0" y="105" width="198" height="10" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean($F{template}.isFiskalnaTransakcija())]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="Ubuntu" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["ZKI: " + $F{zki}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="0" y="115" width="198" height="10" isRemoveLineWhenBlank="true"/>
+					<textElement>
+						<font fontName="Ubuntu" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Operater: " + $F{operater}.getName()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="0" y="125" width="198" height="10" isRemoveLineWhenBlank="true"/>
+					<textElement>
+						<font fontName="Ubuntu" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Način plaćanja: " + $F{template}.getOpisPlacanja()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<detail>
+		<band height="15">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="539" height="15"/>
+				<dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{stavke})]]></dataSourceExpression>
+				<subreportExpression class="java.io.InputStream"><![CDATA[Pro3x.View.SimpleInvoice.class.getResourceAsStream("reports/invoice-a4-items.jasper")]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<noData>
+		<band height="41"/>
+	</noData>
+</jasperReport>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="56">
+	<parameter name="zaglavlje" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="logo" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="datum" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijena]]></fieldDescription>
+	</field>
+	<field name="mjera" class="java.lang.String">
+		<fieldDescription><![CDATA[mjera]]></fieldDescription>
+	</field>
+	<field name="naziv" class="java.lang.String">
+		<fieldDescription><![CDATA[naziv]]></fieldDescription>
+	</field>
+	<field name="stanje" class="java.lang.Double">
+		<fieldDescription><![CDATA[stanje]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<pageHeader>
+		<band height="100">
+			<textField>
+				<reportElement x="339" y="0" width="200" height="60"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{zaglavlje}]]></textFieldExpression>
+			</textField>
+			<image isUsingCache="true">
+				<reportElement x="0" y="0" width="200" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="60" width="539" height="40"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Stanje skladista: " + $P{datum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22">
+			<staticText>
+				<reportElement x="0" y="0" width="239" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="0" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="0" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cijena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="0" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mjera]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="0" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stanje]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="539" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="0" y="2" width="239" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{naziv}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.000;-###0.000">
+				<reportElement x="239" y="2" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{stanje}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="314" y="2" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mjera}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="389" y="2" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cijena}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="464" y="2" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40">
+			<line>
+				<reportElement x="0" y="2" width="539" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

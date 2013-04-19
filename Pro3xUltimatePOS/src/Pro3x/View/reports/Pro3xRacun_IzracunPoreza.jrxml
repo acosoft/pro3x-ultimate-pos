@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pro3xRacun_IzracunPoreza" pageWidth="403" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="403" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="Ukupno" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ValutaPlacanja" class="java.lang.String"/>
+	<queryString language="ejbql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="iznos" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznos]]></fieldDescription>
+	</field>
+	<field name="naziv" class="java.lang.String">
+		<fieldDescription><![CDATA[naziv]]></fieldDescription>
+	</field>
+	<field name="osnovica" class="java.lang.Double">
+		<fieldDescription><![CDATA[osnovica]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<variable name="oznaka" class="java.lang.String" resetType="None" incrementType="Report"/>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement mode="Opaque" x="23" y="0" width="175" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Porezna stopa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="199" y="0" width="82" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Osnovica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="282" y="0" width="60" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Iznos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="343" y="0" width="60" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Ukupno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="22" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Br.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="-1" y="0" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{REPORT_COUNT}.toString() + ". "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="0" width="175" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $F{naziv}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="199" y="0" width="82" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{osnovica}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="282" y="0" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="343" y="0" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="403" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="343" y="0" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{Ukupno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="122" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Ukupno ( " + $P{ValutaPlacanja} + " )"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

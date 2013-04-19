@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+SplashScreen-Image: pro3x-ultimate-pos-4-2-1-splash.png

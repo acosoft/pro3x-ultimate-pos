@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="226" pageHeight="300" columnWidth="198" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" isFloatColumnFooter="true" isIgnorePagination="true">
+	<parameter name="Zaglavlje" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Opis" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Logo" class="java.io.InputStream" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="artikal" class="Acosoft.Processing.DataBox.Roba">
+		<fieldDescription><![CDATA[artikal]]></fieldDescription>
+	</field>
+	<field name="datum" class="java.util.Date">
+		<fieldDescription><![CDATA[datum]]></fieldDescription>
+	</field>
+	<field name="kolicina" class="java.lang.Double">
+		<fieldDescription><![CDATA[kolicina]]></fieldDescription>
+	</field>
+	<field name="novaCijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[novaCijena]]></fieldDescription>
+	</field>
+	<field name="staraCijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[staraCijena]]></fieldDescription>
+	</field>
+	<group name="prema artiklima">
+		<groupExpression><![CDATA[$F{artikal}.getNaziv()]]></groupExpression>
+		<groupHeader>
+			<band height="57">
+				<staticText>
+					<reportElement mode="Transparent" x="153" y="44" width="45" height="12"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nova]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="108" y="44" width="45" height="12"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Stara]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="44" width="63" height="12"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Datum]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="63" y="44" width="45" height="12"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Količina]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="56" width="198" height="1"/>
+				</line>
+				<textField>
+					<reportElement x="0" y="24" width="198" height="20"/>
+					<textElement>
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{artikal}.getNaziv()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<line>
+					<reportElement x="0" y="0" width="198" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<pageHeader>
+		<band height="144">
+			<image scaleImage="RealSize" hAlign="Center">
+				<reportElement x="0" y="0" width="198" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{Logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement positionType="Float" x="0" y="124" width="198" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" Zapisnik o promjeni cijena"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="60" width="198" height="64" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{Zaglavlje}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="12">
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="0" y="0" width="63" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{datum}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="108" y="0" width="45" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{staraCijena}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="153" y="0" width="45" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{novaCijena}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="63" y="0" width="45" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{kolicina}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

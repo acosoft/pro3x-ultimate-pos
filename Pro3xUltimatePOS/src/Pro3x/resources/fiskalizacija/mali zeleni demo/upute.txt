@@ -1,0 +1,13 @@
+- Pokrenuti program
+- Kliknuti na izvornik Fiskalizacija / Fiskalni certifikat
+- kliknuti gumb Promjeni i izabrati datoteku demo-fina.pfx
+- upisati zaporku za otkučavanje datoteke: login
+- aktivirati kvačicu za fisklizaciju računa
+- spremiti sve promjene
+
+- - -
+
+- kliknuti izbornik Fiskalizacija / Poslovni prostor
+- upisati proizvoljne podatke osim OIB broja
+- upisati OIB broj tvrtke Mali zeleni, 61543907467
+- spremiti promjene

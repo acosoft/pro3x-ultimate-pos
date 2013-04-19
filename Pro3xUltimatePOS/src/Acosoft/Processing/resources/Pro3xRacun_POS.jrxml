@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ispis računa" pageWidth="214" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="184" leftMargin="15" rightMargin="15" topMargin="10" bottomMargin="45" isFloatColumnFooter="true" isIgnorePagination="true">
+	<parameter name="RacunKljuc" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunOznaka" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunOtpremnica" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunIzdan" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunValuta" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunNaziv" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunAdresa" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunLokacija" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunMaticniBroj" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunPorez" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunUkupno" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunBrojStavki" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="RacunNapomena" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunLogo" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="RacunZaglavlje" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunZiro" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunTvrtka" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunInfo" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\SVN\\pro3x\\src\\Acosoft\\Processing\\resources\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IzracunPoreza" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
+	<parameter name="IzracunPorezaReport" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="ValutaPlacanja" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="RacunOsnovica" class="java.lang.Double"/>
+	<queryString language="ejbql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="iznos" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznos]]></fieldDescription>
+	</field>
+	<field name="cijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijena]]></fieldDescription>
+	</field>
+	<field name="kolicina" class="java.lang.Double">
+		<fieldDescription><![CDATA[kolicina]]></fieldDescription>
+	</field>
+	<field name="mjera" class="java.lang.String">
+		<fieldDescription><![CDATA[mjera]]></fieldDescription>
+	</field>
+	<field name="popust" class="java.lang.Double">
+		<fieldDescription><![CDATA[popust]]></fieldDescription>
+	</field>
+	<field name="roba" class="java.lang.String">
+		<fieldDescription><![CDATA[roba]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<field name="maloprodajnaCijena" class="java.lang.Double"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="209">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="2" y="72" width="182" height="43" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean(!$P{RacunZaglavlje}.isEmpty())]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top" markup="none">
+					<font fontName="Tahoma" size="8" isBold="true" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunZaglavlje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="115" width="35" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunOznaka}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="151" width="182" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="8" isBold="false" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunAdresa}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="163" width="182" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="8" isBold="false" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunLokacija}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="139" width="182" height="12" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="8" isBold="false" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunNaziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="175" width="182" height="12" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($P{RacunMaticniBroj}.isEmpty() == false)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="8" isBold="false" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["MB: " + $P{RacunMaticniBroj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="115" width="147" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunIzdan}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RealSize" hAlign="Center">
+				<reportElement x="0" y="0" width="184" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{RacunLogo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="2" y="187" width="182" height="12" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($P{RacunValuta}.isEmpty() == false)]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Datum dospijeća: " + $P{RacunValuta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="13">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="15" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Br.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="15" y="0" width="79" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Naziv artikla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="149" y="0" width="35" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="114" y="0" width="35" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Cijena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="94" y="0" width="20" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kom]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="12" width="184" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12">
+			<textField>
+				<reportElement x="15" y="0" width="79" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $F{roba}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="114" y="0" width="35" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{maloprodajnaCijena}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="true">
+				<reportElement x="94" y="0" width="20" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{kolicina}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="149" y="0" width="35" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="15" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{REPORT_COUNT} + ". "]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="157" isSplitAllowed="false">
+			<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() == $P{RacunBrojStavki}.intValue())]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="97" width="184" height="60" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="none">
+					<font fontName="Tahoma" size="8" isBold="false" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunNapomena}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="25" width="184" height="60" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($P{IzracunPoreza} != null)]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="ValutaPlacanja">
+					<subreportParameterExpression><![CDATA[$P{ValutaPlacanja}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Ukupno">
+					<subreportParameterExpression><![CDATA[$P{RacunUkupno}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{IzracunPoreza}]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{IzracunPorezaReport}]]></subreportExpression>
+			</subreport>
+			<textField pattern="">
+				<reportElement positionType="Float" x="149" y="1" width="35" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RacunUkupno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="149" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Ukupno ( " + $P{ValutaPlacanja} + " )"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="184" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

@@ -1,0 +1,3 @@
+kopirati fontove u font direktorij operacijskog sustava
+npr. C:/Windows/Fonts
+

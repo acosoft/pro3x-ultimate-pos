@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="226" pageHeight="170" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="10">
+	<import value="Pro3x.Kalkulacije.Model.*"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="artikal" class="Acosoft.Processing.DataBox.Roba">
+		<fieldDescription><![CDATA[artikal]]></fieldDescription>
+	</field>
+	<field name="kalkulacija" class="Pro3x.Kalkulacije.Model.Kalkulacija">
+		<fieldDescription><![CDATA[kalkulacija]]></fieldDescription>
+	</field>
+	<field name="prikazCijene" class="java.lang.String">
+		<fieldDescription><![CDATA[prikazCijene]]></fieldDescription>
+	</field>
+	<field name="barcode" class="java.lang.String">
+		<fieldDescription><![CDATA[barcode]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="150">
+			<elementGroup/>
+			<rectangle radius="0">
+				<reportElement mode="Transparent" x="0" y="0" width="180" height="150"/>
+			</rectangle>
+			<textField>
+				<reportElement x="6" y="0" width="104" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{artikal}.getNaziv()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="136" width="186" height="0"/>
+				<textElement textAlignment="Center" rotation="None">
+					<font fontName="Free 3 of 9 Extended" size="24" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{barcode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="110" y="0" width="70" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{prikazCijene}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="138" width="186" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{barcode} + " / Kalkulacija: " + $F{kalkulacija}.getOznakaKalkulacije()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="23" width="168" height="90"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{artikal}.getDeklaracija()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="17" width="180" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

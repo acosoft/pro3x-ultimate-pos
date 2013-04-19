@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<import value="java.text.SimpleDateFormat"/>
+	<import value="Acosoft.Processing.DataBox.*"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="iznosMarze" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznosMarze]]></fieldDescription>
+	</field>
+	<field name="rabat" class="java.lang.Double">
+		<fieldDescription><![CDATA[rabat]]></fieldDescription>
+	</field>
+	<field name="kalkulacija" class="Pro3x.Kalkulacije.Model.Kalkulacija">
+		<fieldDescription><![CDATA[kalkulacija]]></fieldDescription>
+	</field>
+	<field name="iznosRabata" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznosRabata]]></fieldDescription>
+	</field>
+	<field name="marza" class="java.lang.Double">
+		<fieldDescription><![CDATA[marza]]></fieldDescription>
+	</field>
+	<field name="iznosPoreza" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznosPoreza]]></fieldDescription>
+	</field>
+	<field name="iznos" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznos]]></fieldDescription>
+	</field>
+	<field name="zavisniTroskovi" class="java.lang.Double">
+		<fieldDescription><![CDATA[zavisniTroskovi]]></fieldDescription>
+	</field>
+	<field name="mjera" class="java.lang.String">
+		<fieldDescription><![CDATA[mjera]]></fieldDescription>
+	</field>
+	<field name="cijenaBezPoreza" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijenaBezPoreza]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<field name="poreznaStopa" class="java.lang.Double">
+		<fieldDescription><![CDATA[poreznaStopa]]></fieldDescription>
+	</field>
+	<field name="fakturnaSaPorezom" class="java.lang.Double">
+		<fieldDescription><![CDATA[fakturnaSaPorezom]]></fieldDescription>
+	</field>
+	<field name="cijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijena]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="kolicina" class="java.lang.Double">
+		<fieldDescription><![CDATA[kolicina]]></fieldDescription>
+	</field>
+	<field name="fakturnaBezPoreza" class="java.lang.Double">
+		<fieldDescription><![CDATA[fakturnaBezPoreza]]></fieldDescription>
+	</field>
+	<field name="artikal" class="Acosoft.Processing.DataBox.Roba">
+		<fieldDescription><![CDATA[artikal]]></fieldDescription>
+	</field>
+	<field name="osnovica" class="java.lang.Double">
+		<fieldDescription><![CDATA[osnovica]]></fieldDescription>
+	</field>
+	<field name="kartice" class="java.util.List">
+		<fieldDescription><![CDATA[kartice]]></fieldDescription>
+	</field>
+	<field name="cijenaSaPorezom" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijenaSaPorezom]]></fieldDescription>
+	</field>
+	<variable name="osnovicaFaktura" class="java.lang.Double" resetType="Group" resetGroup="kalkulacija" calculation="Sum">
+		<variableExpression><![CDATA[$F{fakturnaBezPoreza}]]></variableExpression>
+	</variable>
+	<variable name="ukupnoFakturna" class="java.lang.Double" resetType="Group" resetGroup="kalkulacija" calculation="Sum">
+		<variableExpression><![CDATA[$F{fakturnaSaPorezom}]]></variableExpression>
+	</variable>
+	<variable name="marza" class="java.lang.Double" resetType="Group" resetGroup="kalkulacija" calculation="Sum">
+		<variableExpression><![CDATA[$F{iznosMarze}]]></variableExpression>
+	</variable>
+	<variable name="osnovica" class="java.lang.Double" resetType="Group" resetGroup="kalkulacija" calculation="Sum">
+		<variableExpression><![CDATA[$F{osnovica}]]></variableExpression>
+	</variable>
+	<variable name="ukupno" class="java.lang.Double" resetType="Group" resetGroup="kalkulacija" calculation="Sum">
+		<variableExpression><![CDATA[$F{ukupno}]]></variableExpression>
+	</variable>
+	<group name="kalkulacija" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{kalkulacija}]]></groupExpression>
+		<groupHeader>
+			<band height="144">
+				<textField>
+					<reportElement x="0" y="0" width="486" height="20"/>
+					<textElement>
+						<font fontName="Arial" size="16"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Kalkulacija br. " + $F{kalkulacija}.getOznakaKalkulacije()
++ " izrađena " + new SimpleDateFormat("dd.MM.yyyy").format($F{kalkulacija}.getDatumIzrade())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="122" width="24" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Br.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="25" y="122" width="59" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Šifra]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="85" y="122" width="116" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Naziv artikla]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="202" y="122" width="29" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Jed.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="232" y="122" width="29" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Kol.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="262" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cijena]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="307" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Iznos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="352" y="122" width="89" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Rabat]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="487" y="122" width="89" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Marža]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="577" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Iznos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="622" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[PDV]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="667" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ukupno]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="712" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cijena]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="757" y="122" width="45" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[MPC]]></text>
+				</staticText>
+				<textField pattern="d.M.yyyy">
+					<reportElement x="85" y="70" width="147" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{kalkulacija}.getDatumDokumenta()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="70" width="85" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Datum]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="50" width="85" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Izradio]]></text>
+				</staticText>
+				<textField pattern="">
+					<reportElement x="85" y="50" width="147" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{kalkulacija}.getIzradio()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="262" y="70" width="85" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Dokument]]></text>
+				</staticText>
+				<textField pattern="">
+					<reportElement x="347" y="70" width="139" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{kalkulacija}.getOznakaDokumenta()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="262" y="50" width="85" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Dobavljač]]></text>
+				</staticText>
+				<textField pattern="">
+					<reportElement x="347" y="50" width="139" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{kalkulacija}.getDobavljac().getNaziv()]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="143" width="802" height="1"/>
+				</line>
+				<line>
+					<reportElement x="0" y="120" width="802" height="1"/>
+				</line>
+				<staticText>
+					<reportElement mode="Opaque" x="442" y="122" width="44" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fak.]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="44">
+				<line>
+					<reportElement x="0" y="2" width="802" height="1"/>
+				</line>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="532" y="3" width="45" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{marza}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="577" y="3" width="45" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{osnovica}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="667" y="3" width="45" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{ukupno}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="622" y="3" width="45" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[new Double($V{ukupno}.doubleValue() - $V{osnovica}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField pattern="###0.00;-###0.00">
+					<reportElement x="442" y="3" width="45" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{osnovicaFaktura}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="85" y="0" width="117" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{artikal}.getNaziv()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="0" width="60" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{artikal}.getSifra()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="30" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mjera}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="232" y="0" width="30" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{kolicina}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="262" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cijena}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="307" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="352" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{rabat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznosRabata}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="442" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{fakturnaBezPoreza}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="487" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{marza}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="532" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznosMarze}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="577" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{osnovica}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="622" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="667" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="712" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cijenaBezPoreza}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="757" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cijenaSaPorezom}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="0" y="0" width="25" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{REPORT_COUNT}.toString() + ". "]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

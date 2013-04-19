@@ -1,0 +1,1116 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.5">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPanel" name="mainPanel">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[640, 400]"/>
+        </Property>
+        <Property name="name" type="java.lang.String" value="mainPanel" noResource="true"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1024, 768]"/>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JToolBar" name="tools">
+          <Properties>
+            <Property name="rollover" type="boolean" value="true"/>
+            <Property name="name" type="java.lang.String" value="Kratice" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tools.setVisible(false);"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="East"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaNoviRacun" methodName="AkcijaNoviRacun"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton1.icon"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton1.toolTipText"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="hideActionText" type="boolean" value="true"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton7">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaUnosNovogTouchRacuna" methodName="AkcijaUnosNovogTouchRacuna"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton7.icon"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton7.toolTipText"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="hideActionText" type="boolean" value="true"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton7" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton6">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaPregledNeplacenihRacuna" methodName="AkcijaPregledNeplacenihRacuna"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton6.icon"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton6.toolTipText"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="hideActionText" type="boolean" value="true"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton6" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton5">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaPregledRacuna" methodName="AkcijaPregledRacuna"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton5.icon"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton5.toolTipText"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="hideActionText" type="boolean" value="true"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton5" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator17">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator17" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton10">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaNoviArtikal" methodName="AkcijaNoviArtikal"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton10.icon"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton10.toolTipText"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="hideActionText" type="boolean" value="true"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton10" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton9">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="SimplePregledArtikala" methodName="SimplePregledArtikala"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton9.icon"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton9.toolTipText"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton9" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator14">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator14" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="toolNovaKalkulacija">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaNovaKalkulacija" methodName="AkcijaNovaKalkulacija"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="toolNovaKalkulacija.icon"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="toolNovaKalkulacija" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="toolPopisKalkulacija">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaPregledSvihKalkulacija" methodName="AkcijaPregledSvihKalkulacija"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="toolPopisKalkulacija.icon"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="toolPopisKalkulacija" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="toolDobavljaci">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaPregledDobavljaca" methodName="AkcijaPregledDobavljaca"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="toolDobavljaci.icon"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="toolDobavljaci" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JToolBar$Separator" name="separateToolDobavljaci">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="separateToolDobavljaci" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaNoviKorisnik" methodName="AkcijaNoviKorisnik"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton2.icon"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton2" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton4">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaPregledKorisnika" methodName="AkcijaPregledKorisnika"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jButton4.icon"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[15, 20, 15, 20]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jButton4" noResource="true"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JDesktopPane" name="desk">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
+            <Property name="desktopManager" type="javax.swing.DesktopManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Acosoft.Processing.Components.DesktopManager()" type="code"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[640, 480]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="desk" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="componentResized" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="PodesiLogo"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Center"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="logo">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="logo.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="logo.text"/>
+                <Property name="verticalAlignment" type="int" value="3"/>
+                <Property name="alignmentX" type="float" value="0.5"/>
+                <Property name="doubleBuffered" type="boolean" value="true"/>
+                <Property name="name" type="java.lang.String" value="logo" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="logo.setVisible(false);"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
+                  <JLayeredPaneConstraints x="210" y="80" width="510" height="150" layer="0" position="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JMenuBar" name="menuBar">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="menuBar" noResource="true"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="fileMenu">
+          <Properties>
+            <Property name="mnemonic" type="int" value="82"/>
+            <Property name="text" type="java.lang.String" resourceKey="fileMenu.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 20, 4, 26]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="fileMenu" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem21.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem21.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem21" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriRssReader"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="showAboutBox" methodName="showAboutBox"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="aboutMenuItem.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="aboutMenuItem.text"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="aboutMenuItem.toolTipText"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="aboutMenuItem" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator10">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator10" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuConfigureDatabase">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuConfigureDatabase.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuConfigureDatabase.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuConfigureDatabase" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuConfigureDatabaseActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator11">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator11" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem11.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem11.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem11" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem11ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//jMenuItem11.setVisible(false);"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem23">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem23.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem23.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem23" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriIzmjenuPredlozaka"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="toolsMeni">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="ToogleTools" methodName="ToogleTools"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="toolsMeni.icon"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="toolsMeni" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator2">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator2" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="exitMenuItem">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="org.jdesktop.application.Application" id="quit" methodName="quit"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="exitMenuItem.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="exitMenuItem.text"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="exitMenuItem.toolTipText"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="exitMenuItem" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="jMenu2.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 26, 4, 26]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jMenu2" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="OtvoriUnosNovogOperatera" methodName="OtvoriUnosNovogOperatera"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem9.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem9.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem9" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="OtvoriPopisOperatera" methodName="OtvoriPopisOperatera"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem8.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem8.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem8" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator13">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator13" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="OtvoriIzmjenuLokacije" methodName="OtvoriIzmjenuLokacije"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem10.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem10.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem10" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="UcitajCertifikat" methodName="UcitajCertifikat"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem12.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem12.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem12" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator15">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator15" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="TestirajFiskalnuVezu" methodName="TestirajFiskalnuVezu"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem13.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem13.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem13" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="mnemonic" type="int" value="75"/>
+            <Property name="text" type="java.lang.String" resourceKey="jMenu1.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 26, 4, 26]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jMenu1" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Alt+K"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem1.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem1.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem1" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriUnosNovogKorisnika"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator7">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator7" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem2.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem2.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem2" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriPopisKorisnika"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mnuSkladiste">
+          <Properties>
+            <Property name="mnemonic" type="int" value="83"/>
+            <Property name="text" type="java.lang.String" resourceKey="mnuSkladiste.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 26, 4, 26]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="mnuSkladiste" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Alt+A"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem4.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem4.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem4" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriUnosNoveRobe"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="SimplePregledArtikala" methodName="SimplePregledArtikala"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem5.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem5.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem5" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuGrupeArtikala">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuGrupeArtikala.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuGrupeArtikala.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuGrupeArtikala" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriPopisAparata"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator12">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator12" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem22">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem22.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem22.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem22" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem22ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="separateKalkulacije">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="separateKalkulacije" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuExportArtikala">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="ExportArtikala" methodName="ExportArtikala"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuExportArtikala.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuExportArtikala.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuExportArtikala" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuImportArtikala">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="ImportArtikala" methodName="ImportArtikala"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuImportArtikala.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuImportArtikala.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuImportArtikala" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="separateStanje">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="separateStanje" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuSekvencaKalkulacija">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="IzmjenaSekvenceKalkulacija" methodName="IzmjenaSekvenceKalkulacija"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuSekvencaKalkulacija.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuSekvencaKalkulacija.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuSekvencaKalkulacija" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator3">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator3" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuNovaKalkulacija">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Alt+D"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuNovaKalkulacija.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuNovaKalkulacija.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuNovaKalkulacija" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuNovaKalkulacijaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuStanjeSkladista">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="OtvoriStanjeSkladista" methodName="OtvoriStanjeSkladista"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuStanjeSkladista.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuStanjeSkladista.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuStanjeSkladista" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuPopisSvihKalkulacija">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuPopisSvihKalkulacija.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuPopisSvihKalkulacija.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuPopisSvihKalkulacija" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriPregledDostavnica"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="separatePopisDobavljaca">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="separatePopisDobavljaca" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuPopisDobavljaca">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuPopisDobavljaca.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuPopisDobavljaca.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuPopisDobavljaca" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuPopisDobavljacaActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="helpMenu">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="Acosoft.Processing.Pro3View" id="KnjigaPopisa" methodName="KnjigaPopisa"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="helpMenu.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 26, 4, 26]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="helpMenu" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Alt+R"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem3.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem3.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem3" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriUnosRacuna"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem26">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Alt+T"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem26.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem26.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem26" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriNoviTouchScreenRacun"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator4">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator4" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem6.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem6.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem6" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriPopisNeplacenihRacuna"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem7.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem7.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem7" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtvoriStorniranjeRacuna"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="separateSekvence">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="separateSekvence" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuSekvenca">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="OtvoriDefinicijuSekvence" methodName="OtvoriDefinicijuSekvence"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuSekvenca.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuSekvenca.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuSekvenca" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator1" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuGrupniPregled">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="PregledGrupniDnevniPromet" methodName="PregledGrupniDnevniPromet"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuGrupniPregled.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuGrupniPregled.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuGrupniPregled" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuRobniPregled">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="PregledDnevnogPrometa" methodName="PregledDnevnogPrometa"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuRobniPregled.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuRobniPregled.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuRobniPregled" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuKnjigaPopisa">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="KnjigaPopisa" methodName="KnjigaPopisa"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuKnjigaPopisa.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuKnjigaPopisa.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuKnjigaPopisa" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuZapisnici">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="OtvoriPregledZapisnikaPromjeneCijena" methodName="OtvoriPregledZapisnikaPromjeneCijena"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuZapisnici.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuZapisnici.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuZapisnici" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator5">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator5" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuStanjeBlagajne">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="Acosoft.Processing.Pro3View" id="AkcijaSimplePregledBlagajne" methodName="AkcijaSimplePregledBlagajne"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="mnuStanjeBlagajne.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="mnuStanjeBlagajne.text"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnuStanjeBlagajne" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mnuProzori">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="mnuProzori.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 26, 4, 26]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="mnuProzori" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Alt+Q"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem16.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem16.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem16" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem16ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem15.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem15.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem15" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem15ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator9">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator9" noResource="true"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="jMenuItem17.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="jMenuItem17.text"/>
+                <Property name="iconTextGap" type="int" value="5"/>
+                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                  <Insets value="[5, 2, 4, 2]"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jMenuItem17" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem17ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JSeparator" name="jSeparator8">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator8" noResource="true"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="statusPanel">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="statusPanel" noResource="true"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JSeparator" name="statusPanelSeparator">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="statusPanelSeparator" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="0" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="0.1" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="statusMessageLabel">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[100, 18]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[100, 18]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="statusMessageLabel" noResource="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[100, 25]"/>
+            </Property>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="10" insetsBottom="5" insetsRight="5" anchor="23" weightX="0.1" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="statusAnimationLabel">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="icon" type="javax.swing.Icon" resourceKey="statusAnimationLabel.icon"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[25, 25]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[25, 25]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="statusAnimationLabel" noResource="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[25, 25]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="2" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="10" anchor="23" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JProgressBar" name="progressBar">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[250, 25]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[250, 25]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="progressBar" noResource="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[250, 25]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="1" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="23" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="component" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="mainPanel"/>
+    </Property>
+    <Property name="menuBar" type="javax.swing.JMenuBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="menuBar"/>
+    </Property>
+    <Property name="statusBar" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="statusPanel"/>
+    </Property>
+    <Property name="toolBar" type="javax.swing.JToolBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="tools"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,38,0,0,3,116"/>
+  </AuxValues>
+</Form>

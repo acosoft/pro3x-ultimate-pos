@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pro3xRacun_IzracunPoreza" pageWidth="184" pageHeight="200" whenNoDataType="AllSectionsNoDetail" columnWidth="184" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<parameter name="Ukupno" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ValutaPlacanja" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Racun" class="Acosoft.Processing.DataBox.Racun" isForPrompting="false"/>
+	<queryString language="ejbql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="iznos" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznos]]></fieldDescription>
+	</field>
+	<field name="naziv" class="java.lang.String">
+		<fieldDescription><![CDATA[naziv]]></fieldDescription>
+	</field>
+	<field name="osnovica" class="java.lang.Double">
+		<fieldDescription><![CDATA[osnovica]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<variable name="oznaka" class="java.lang.String" resetType="None" incrementType="Report"/>
+	<columnHeader>
+		<band height="15">
+			<staticText>
+				<reportElement mode="Transparent" x="25" y="0" width="34" height="12" backcolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Porez]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="59" y="0" width="40" height="12" backcolor="#000000"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Osnovica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="99" y="0" width="35" height="12" backcolor="#000000"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Iznos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="134" y="0" width="45" height="12" backcolor="#000000"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="25" height="12" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Br.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="14" width="184" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31">
+			<textField>
+				<reportElement x="0" y="4" width="25" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{REPORT_COUNT}.toString() + "."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="4" width="154" height="12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{naziv}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00; ###0.00">
+				<reportElement x="59" y="16" width="40" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{osnovica}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00; ###0.00">
+				<reportElement x="99" y="16" width="35" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00; ###0.00">
+				<reportElement x="134" y="16" width="45" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="184" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() > 1)]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15">
+			<textField pattern="###0.00; ###0.00">
+				<reportElement x="99" y="3" width="80" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$P{Racun}.getUkupno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="3" width="100" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{Racun}.getOpis() + " ( " + $P{ValutaPlacanja} + " )"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="184" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

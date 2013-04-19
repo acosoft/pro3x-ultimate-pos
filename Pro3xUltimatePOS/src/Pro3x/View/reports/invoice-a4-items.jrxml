@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice items" pageWidth="538" pageHeight="1417" columnWidth="538" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[cijena]]></fieldDescription>
+	</field>
+	<field name="iznos" class="java.lang.Double">
+		<fieldDescription><![CDATA[iznos]]></fieldDescription>
+	</field>
+	<field name="kolicina" class="java.lang.Double">
+		<fieldDescription><![CDATA[kolicina]]></fieldDescription>
+	</field>
+	<field name="maloprodajnaCijena" class="java.lang.Double">
+		<fieldDescription><![CDATA[maloprodajnaCijena]]></fieldDescription>
+	</field>
+	<field name="mjera" class="java.lang.String">
+		<fieldDescription><![CDATA[mjera]]></fieldDescription>
+	</field>
+	<field name="popust" class="java.lang.Double">
+		<fieldDescription><![CDATA[popust]]></fieldDescription>
+	</field>
+	<field name="roba" class="java.lang.String">
+		<fieldDescription><![CDATA[roba]]></fieldDescription>
+	</field>
+	<field name="ukupno" class="java.lang.Double">
+		<fieldDescription><![CDATA[ukupno]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="3" width="209" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{roba}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="298" y="3" width="60" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{maloprodajnaCijena}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.000;-###0.000">
+				<reportElement x="209" y="3" width="59" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{kolicina}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="358" y="3" width="60" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="538" height="1" forecolor="#000000">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() > 1)]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField pattern="#,##0.00">
+				<reportElement x="418" y="3" width="60" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double($F{popust}.doubleValue() * 100D)]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="478" y="3" width="60" height="15" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="3" width="30" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ubuntu" size="12" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $F{mjera}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

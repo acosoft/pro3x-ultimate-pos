@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<subDataset name="dataset1"/>
+	<field name="naziv" class="java.lang.String"/>
+	<field name="osnovica" class="java.lang.String"/>
+	<field name="iznos" class="java.lang.String"/>
+	<field name="ukupno" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="79"/>
+	</title>
+	<pageHeader>
+		<band height="71"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26">
+			<staticText>
+				<reportElement x="0" y="6" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="6" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Osnovica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="6" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Porez]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="6" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26">
+			<textField>
+				<reportElement x="0" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{osnovica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ukupno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54"/>
+	</pageFooter>
+	<summary>
+		<band height="42"/>
+	</summary>
+</jasperReport>

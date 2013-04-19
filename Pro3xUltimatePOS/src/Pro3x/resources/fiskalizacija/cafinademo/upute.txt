@@ -1,0 +1,9 @@
+UPUTE ZA INSTALACIJU CERTIFIKATA
+
+- otvorite terminal
+- otvorite JAVA_HOME/bin direktorij
+- izvršite naredbu: 
+
+keytool -importcert -file "PUTANJA\democacert.cer" -keystore ..\lib\security\cacerts
+
+- PUTANJA zamjenite sa putanjom do democacert.cer datoteke

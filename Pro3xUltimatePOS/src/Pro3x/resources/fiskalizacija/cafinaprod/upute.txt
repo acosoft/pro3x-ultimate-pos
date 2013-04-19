@@ -1,0 +1,27 @@
+UPUTE ZA PRIPREMU CERTIFIKATA
+
+- za import zaporku, koristite zaporku koju ste dobili od Fine
+- za export koristite istu zaporku za sve naredbe
+
+- export certifikata iz originalne finine datoteke
+openssl pkcs12 -nokeys -clcerts -in "FISKAL 1.P12" -out cert.pem
+
+- naredba za export kljuca iz originalne finine datoteke
+openssl pkcs12 -nocerts -in "FISKAL 1.P12" -out key.pem
+
+-naredba za kreiranja certifikate koji se može učitati u Pro3x Ulitmate POS aplikaciju
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out prod-fina.pfx
+
+UPUTE ZA INSTALACIJU CERTIFIKATA
+
+- otvorite terminal
+- otvorite JAVA_HOME/bin direktorij
+- izvršite naredbe: 
+
+Ako ste koristili demo certifikate, prvo izvršite naredbu
+keytool -delete -alias mykey -keystore ../lib/security/cacerts
+
+Zatim izvršite sljedeću naredbu
+keytool -importcert -file "PUTANJA\RDCca.cer.cer" -keystore ..\lib\security\cacerts
+
+- PUTANJA zamjenite sa putanjom do democacert.cer datoteke

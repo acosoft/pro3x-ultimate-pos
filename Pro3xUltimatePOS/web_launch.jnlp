@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp codebase="file:/C:/Documents%20and%20Settings/nonstop/My%20Documents/NetBeansProjects/pro3/dist/" href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>AcoSoft - Pro3x</title>
+        <vendor>Aleksandar Zgonjan</vendor>
+        <homepage href="aleksandar.zgonjan@ri.t-com.hr"/>
+        <description>Aplikacija za jednostavno praćenje poslovanja malih poduzetnika.</description>
+        <description kind="short">AcoSoft - Pro3x</description>
+        <icon href="shoresplash.png" kind="splash"/>
+        <icon href="blockdevice.png" kind="default"/>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.5+"/>
+        <jar eager="true" href="pro3.jar" main="true"/>
+        <jar href="lib/beansbinding-1.2.1.jar"/>
+        <jar href="lib/AppFramework.jar"/>
+        <jar href="lib/mysql-connector-java-5.0.7-bin.jar"/>
+        <jar href="lib/derby.jar"/>
+        <jar href="lib/derbyclient.jar"/>
+        <jar href="lib/toplink-essentials.jar"/>
+        <jar href="lib/toplink-essentials-agent.jar"/>
+        <jar href="lib/substance.jar"/>
+        <jar href="lib/JasperReports.jar"/>
+        <jar href="lib/ant-1.5.1.jar"/>
+        <jar href="lib/antlr-2.7.5.jar"/>
+        <jar href="lib/batik-anim.jar"/>
+        <jar href="lib/batik-awt-util.jar"/>
+        <jar href="lib/batik-bridge.jar"/>
+        <jar href="lib/batik-css.jar"/>
+        <jar href="lib/batik-dom.jar"/>
+        <jar href="lib/batik-ext.jar"/>
+        <jar href="lib/batik-gvt.jar"/>
+        <jar href="lib/batik-parser.jar"/>
+        <jar href="lib/batik-script.jar"/>
+        <jar href="lib/batik-svg-dom.jar"/>
+        <jar href="lib/batik-svggen.jar"/>
+        <jar href="lib/batik-util.jar"/>
+        <jar href="lib/batik-xml.jar"/>
+        <jar href="lib/bsh-2.0b4.jar"/>
+        <jar href="lib/commons-beanutils-1.7.jar"/>
+        <jar href="lib/commons-collections-2.1.jar"/>
+        <jar href="lib/commons-digester-1.7.jar"/>
+        <jar href="lib/commons-javaflow-20060411.jar"/>
+        <jar href="lib/commons-logging-1.0.2.jar"/>
+        <jar href="lib/groovy-all-1.5.5.jar"/>
+        <jar href="lib/hibernate3.jar"/>
+        <jar href="lib/hsqldb-1.7.1.jar"/>
+        <jar href="lib/iText-2.1.0.jar"/>
+        <jar href="lib/jakarta-bcel-20050813.jar"/>
+        <jar href="lib/jaxen-1.1.1.jar"/>
+        <jar href="lib/jcommon-1.0.15.jar"/>
+        <jar href="lib/jdt-compiler-3.1.1.jar"/>
+        <jar href="lib/jfreechart-1.0.12.jar"/>
+        <jar href="lib/jpa.jar"/>
+        <jar href="lib/jxl-2.6.jar"/>
+        <jar href="lib/log4j-1.2.15.jar"/>
+        <jar href="lib/mondrian-2.3.2.8944.jar"/>
+        <jar href="lib/png-encoder-1.5.jar"/>
+        <jar href="lib/poi-3.2-FINAL-20081019.jar"/>
+        <jar href="lib/rhino-1.7R1.jar"/>
+        <jar href="lib/saaj-api-1.3.jar"/>
+        <jar href="lib/servlet.jar"/>
+        <jar href="lib/spring-beans.jar"/>
+        <jar href="lib/spring-core.jar"/>
+        <jar href="lib/xalan.jar"/>
+        <jar href="lib/xercesImpl.jar"/>
+        <jar href="lib/xml-apis-ext.jar"/>
+        <jar href="lib/xml-apis.jar"/>
+        <jar href="lib/Swing_Worker.jar"/>
+        <jar href="lib/LocalDerby.jar"/>
+    </resources>
+    <application-desc main-class="Acosoft.Processing.Pro3App">
+    </application-desc>
+</jnlp>

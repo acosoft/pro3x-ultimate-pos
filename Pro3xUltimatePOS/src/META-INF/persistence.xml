@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="procesingPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>Acosoft.Processing.DataBox.Dobavljac</class>
+    <class>Acosoft.Processing.DataBox.Korisnik</class>
+    <class>Acosoft.Processing.DataBox.Racun</class>
+    <class>Acosoft.Processing.DataBox.Roba</class>
+    <class>Acosoft.Processing.DataBox.RobaKartica</class>
+    <class>Acosoft.Processing.DataBox.Stavke</class>
+    <class>Acosoft.Processing.DataBox.PoreznaStopa</class>
+    <class>Acosoft.Processing.DataBox.Template</class>
+    <class>Acosoft.Processing.DataBox.PoreznaStavkaRacuna</class>
+    <class>Acosoft.Processing.DataBox.GrupaArtikala</class>
+    <class>Acosoft.Processing.DataBox.ArtikalNormativ</class>
+    <class>Pro3x.Kalkulacije.Model.Kalkulacija</class>
+    <class>Pro3x.Kalkulacije.Model.StavkaKalkulacije</class>
+    <class>Pro3x.Kalkulacije.Model.KarticaStavkeKalkulacije</class>
+    <class>Pro3x.PomocniModel.KarticaKalkulacije</class>
+    <class>Pro3x.PomocniModel.KarticaNormativa</class>
+    <class>Acosoft.Processing.DataBox.KarticaStavkeRacuna</class>
+    <class>Pro3x.PomocniModel.KarticaRobe</class>
+    <class>Acosoft.Processing.DataBox.PromjenaCijene</class>
+    <class>Acosoft.Processing.DataBox.RacunNaplata</class>
+    <class>Pro3x.Fiscal.Model.Operater</class>
+    <class>Acosoft.Processing.DataBox.PotStavkaRacuna</class>
+    <class>Acosoft.Processing.DataBox.KarticaStavkeNormativaRacuna</class>
+    <class>Acosoft.Processing.DataBox.Blagajna</class>
+    <properties>
+      <property name="eclipselink.jdbc.password" value=""/>
+      <property name="eclipselink.jdbc.user" value=""/>
+      <property name="eclipselink.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="eclipselink.jdbc.url" value=""/>
+      
+<!--          
+          <property name="eclipselink.ddl-generation.output-mode" value="sql-script"/>
+          <property name="eclipselink.application-location" value="/home/aco/Dokumenti/Mali zeleni/Projekti/Pro3x Ultimate POS/"/>
+          <property name="eclipselink.create-ddl-jdbc-file-name" value="pro3x-ultimate-pos-eclipse-link-create.sql"/>
+          <property name="eclipselink.drop-ddl-jdbc-file-name" value="pro3x-ultimate-pos-eclipse-link-drop.sql"/>
+-->
+          
+     
+      <property name="eclipselink.weaving.changetracking" value="false"/>
+      <property name="eclipselink.query-results-cache" value="false"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.drop-ddl-jdbc-file-name" value="pro3x-ultimate-pos-eclipse-link-drop.sql"/>
+      <property name="eclipselink.query-results-cache" value="false"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      
+    
+          
+      --&gt;
+      </properties>
+  </persistence-unit>
+</persistence>
+<!--
+    LocalDerby
+    jdbc:derby:storage:datastore;create=true
+    com.pro3x.localDerby.Driver
+
+    org.apache.derby.jdbc.EmbeddedDriver
+
+    <properties>
+      <property name="eclipselink.jdbc.password" value="login"/>
+      <property name="eclipselink.jdbc.user" value="root"/>
+      <property name="eclipselink.jdbc.driver" value="com.pro3x.localDerby.Driver"/>
+      <property name="eclipselink.jdbc.url" value="jdbc:derby:storage:datastore;create=true"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.weaving.changetracking" value="false"/>
+    </properties>
+    
+-->
