@@ -1,7 +1,19 @@
-CREATE TABLE kartice_artikala (sid BIGINT AUTO_INCREMENT NOT NULL, DTYPE VARCHAR(31), izlazna_cijena DOUBLE, ulaz_kolicina DOUBLE, opis VARCHAR(255), datum DATETIME, izlaz_kolicina DOUBLE, ulazna_cijena DOUBLE, ROBA_KLJUC VARCHAR(255), stavka_racuna BIGINT, stavka_kalkulacije VARCHAR(255), PRIMARY KEY (sid));
+CREATE TABLE kartice_artikala (
+    sid BIGINT AUTO_INCREMENT NOT NULL, 
+    DTYPE VARCHAR(31), 
+    izlazna_cijena DOUBLE, 
+    ulaz_kolicina DOUBLE, 
+    opis VARCHAR(255), 
+    datum DATETIME, 
+    izlaz_kolicina DOUBLE, 
+    ulazna_cijena DOUBLE, 
+    ROBA_KLJUC VARCHAR(50) COLLATE utf8_bin , 
+    stavka_racuna BIGINT, 
+    stavka_kalkulacije VARCHAR(50) COLLATE utf8_bin , 
+    PRIMARY KEY (sid));
 
 ALTER TABLE kartice_artikala ADD CONSTRAINT FK_kartice_artikala_stavka_racuna FOREIGN KEY (stavka_racuna) REFERENCES STAVKE (KLJUC);
-ALTER TABLE kartice_artikala ADD CONSTRAINT FK_kartice_artikala_ROBA_KLJUC FOREIGN KEY (ROBA_KLJUC) REFERENCES roba (KLJUC);
+ALTER TABLE kartice_artikala ADD CONSTRAINT FK_kartice_artikala_roba_kljuc FOREIGN KEY (roba_kljuc) REFERENCES ROBA (kljuc);
 ALTER TABLE kartice_artikala ADD CONSTRAINT FK_kartice_artikala_stavka_kalkulacije FOREIGN KEY (stavka_kalkulacije) REFERENCES kalkulacija_stavka (kljuc);
 
 insert into kartice_artikala(dtype, izlazna_cijena, ulaz_kolicina, opis, datum, izlaz_kolicina, ulazna_cijena, roba_kljuc, stavka_racuna, stavka_kalkulacije)
@@ -26,8 +38,15 @@ drop table kalkulacija_stavka_kartica;
 
 drop table roba_kartica;
 
-CREATE TABLE blagajna (ID BIGINT AUTO_INCREMENT NOT NULL, IZLAZ DOUBLE, OPIS VARCHAR(255), DATUM DATETIME, ULAZ DOUBLE, RACUN_KLJUC VARCHAR(255), PRIMARY KEY (ID));
-ALTER TABLE blagajna ADD CONSTRAINT FK_blagajna_RACUN_KLJUC FOREIGN KEY (RACUN_KLJUC) REFERENCES RACUN (KLJUC)
+CREATE TABLE blagajna (
+    ID BIGINT AUTO_INCREMENT NOT NULL, 
+    IZLAZ DOUBLE, 
+    OPIS VARCHAR(255), 
+    DATUM DATETIME, 
+    ULAZ DOUBLE, 
+    RACUN_KLJUC VARCHAR(50) COLLATE utf8_bin, 
+    PRIMARY KEY (ID));
 
+ALTER TABLE blagajna ADD CONSTRAINT FK_blagajna_RACUN_KLJUC FOREIGN KEY (RACUN_KLJUC) REFERENCES RACUN (KLJUC);
 
 
