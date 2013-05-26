@@ -49,7 +49,14 @@ public class PregledEntiteta extends JInternalFrame {
         });
         
         grid.setModel(model);
+        cmdIspis.setVisible(false);
+        
         model.refresh();
+    }
+    
+    public void setIspis(boolean visible)
+    {
+        cmdIspis.setVisible(visible);
     }
     
     public void setRenderer(Class<?> columnClass, TableCellRenderer renderer)
@@ -85,6 +92,7 @@ public class PregledEntiteta extends JInternalFrame {
         cmdIzbrisi = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         cmdSpremi = new javax.swing.JButton();
+        cmdIspis = new javax.swing.JButton();
         cmdZatvori = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -157,6 +165,14 @@ public class PregledEntiteta extends JInternalFrame {
         cmdSpremi.setName("cmdSpremi"); // NOI18N
         cmdSpremi.setPreferredSize(new java.awt.Dimension(90, 30));
         jPanel1.add(cmdSpremi);
+
+        cmdIspis.setAction(actionMap.get("Ispis")); // NOI18N
+        cmdIspis.setText(resourceMap.getString("cmdIspis.text")); // NOI18N
+        cmdIspis.setMaximumSize(new java.awt.Dimension(90, 30));
+        cmdIspis.setMinimumSize(new java.awt.Dimension(90, 30));
+        cmdIspis.setName("cmdIspis"); // NOI18N
+        cmdIspis.setPreferredSize(new java.awt.Dimension(90, 30));
+        jPanel1.add(cmdIspis);
 
         cmdZatvori.setAction(actionMap.get("Zatvori")); // NOI18N
         cmdZatvori.setText(resourceMap.getString("cmdZatvori.text")); // NOI18N
@@ -283,9 +299,16 @@ public class PregledEntiteta extends JInternalFrame {
             Logger.getLogger(PregledEntiteta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Action
+    public void Ispis() {
+        SimpleModel modle = (SimpleModel) grid.getModel();
+        model.ispis();
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdDodaj;
+    private javax.swing.JButton cmdIspis;
     private javax.swing.JButton cmdIzbrisi;
     private javax.swing.JButton cmdIzmjeni;
     private javax.swing.JButton cmdOsvjezi;

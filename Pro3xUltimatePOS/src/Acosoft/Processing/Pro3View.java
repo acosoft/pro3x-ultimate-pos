@@ -16,9 +16,12 @@
 
 package Acosoft.Processing;
 
+import Acosoft.Processing.Components.DateCellEditor;
+import Acosoft.Processing.Components.DateCellRenderer;
 import Acosoft.Processing.Components.DeskMeni;
 import Acosoft.Processing.Components.ExceptionView;
 import Acosoft.Processing.Components.NumberCellEditor;
+import Acosoft.Processing.Components.NumberCellRenderer;
 import Acosoft.Processing.Components.PercentCellRenderer;
 import Acosoft.Processing.Components.Pro3xReadRSS;
 import Acosoft.Processing.Components.Tasks;
@@ -49,6 +52,7 @@ import Pro3x.View.SimpleInvoice;
 import Pro3x.View.SimpleModelArtikala;
 import Pro3x.View.SimpleModelDobavljaca;
 import Pro3x.View.SimpleModelGrupa;
+import Pro3x.View.SimpleModelKnjigePopisa;
 import Pro3x.View.SimpleModelPoreznihStopa;
 import Pro3x.View.SimplePregledArtikala;
 import Pro3x.View.SimplePregledBlagajne;
@@ -67,6 +71,7 @@ import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.imageio.ImageIO;
@@ -82,7 +87,6 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.plaf.basic.BasicToolBarUI;
 import javax.xml.ws.BindingProvider;
-import org.apache.poi.hssf.record.formula.functions.Echo;
 
 /**
  * The application's main frame.
@@ -474,7 +478,7 @@ public class Pro3View extends FrameView {
         logo.setAlignmentX(0.5F);
         logo.setDoubleBuffered(true);
         logo.setName("logo"); // NOI18N
-        logo.setBounds(210, 80, 510, 150);
+        logo.setBounds(190, 100, 510, 150);
         desk.add(logo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         mainPanel.add(desk, java.awt.BorderLayout.CENTER);
@@ -1379,9 +1383,23 @@ public class Pro3View extends FrameView {
     }
 
     @Action
-    public Task KnjigaPopisa()
+    public void KnjigaPopisa()
     {
-        return new KnjigaPopisaTask(getApplication());
+        PregledEntiteta view = new PregledEntiteta(new SimpleModelKnjigePopisa("KnjigaPopisa.findAll"));
+
+        view.setIspis(true);
+        
+        view.setTableTitle("Uređivanje knjige popisa");
+        view.setTitle("Pregled knjige popisa");
+        
+        view.setRenderer(Date.class, new DateCellRenderer("dd.MM.yyyy HH:mm"));
+        view.setEditor(Date.class, new DateCellEditor("dd.MM.yyyy HH:mm"));
+        
+        view.setRenderer(Double.class, new NumberCellRenderer(false, true, 2, 2));
+        view.setEditor(Double.class, new NumberCellEditor(true));
+        
+        Show(view);
+        //return new KnjigaPopisaTask(getApplication());
     }
 
     private class KnjigaPopisaTask extends TaskPripremaKnjigePopisa

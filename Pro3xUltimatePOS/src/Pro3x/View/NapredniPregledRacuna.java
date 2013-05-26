@@ -17,12 +17,14 @@ import Acosoft.Processing.Components.NumberCellRenderer;
 import Acosoft.Processing.Components.PercentCellRenderer;
 import Acosoft.Processing.Components.RacunCellRenderer;
 import Acosoft.Processing.Components.Tasks;
+import Acosoft.Processing.DataBox.KnjigaPopisa;
 import Acosoft.Processing.DataBox.Racun;
 import Acosoft.Processing.DataBox.Roba;
 import Acosoft.Processing.DataBox.Stavke;
 import Pro3x.BasicView;
 import Pro3x.Code.ReportingServices;
 import Pro3x.Fiscal.FiskalniRacun;
+import Pro3x.Persistence;
 import Pro3x.View.Models.DataModel;
 import Pro3x.View.Models.StavkaPrometa;
 import java.awt.event.FocusAdapter;
@@ -48,16 +50,20 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileFilter;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import org.jdesktop.application.Action;
+import org.jdesktop.application.Application;
 import org.jdesktop.application.Task;
 import Pro3x.View.Models.DnevniPromet;
 import Pro3x.View.Models.SegmentPrometa;
+import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import org.jdesktop.application.TaskListener;
 
 /**
  *
@@ -140,10 +146,10 @@ public class NapredniPregledRacuna extends BasicView
     private String podesiRaspon()
     {
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.DATE, 1);
+        //cal.set(Calendar.DATE, 1);
         setPocetak(cal.getTime());
 
-        cal.add(Calendar.MONTH, 1);        
+        cal.add(Calendar.DATE, 1);        
         setKraj(cal.getTime());
 
         return trenutniRaspon();
@@ -295,6 +301,12 @@ public class NapredniPregledRacuna extends BasicView
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        reportsMenu = new javax.swing.JPopupMenu();
+        prometPoArtiklima = new javax.swing.JMenuItem();
+        prometPoNacinuPlacanja = new javax.swing.JMenuItem();
+        prometPoRacunima = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        zakljucakKnjigePopisa = new javax.swing.JMenuItem();
         panCommands = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtRaspon = new javax.swing.JTextField();
@@ -303,8 +315,6 @@ public class NapredniPregledRacuna extends BasicView
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        cmdPromet1 = new javax.swing.JButton();
-        cmdPromet = new javax.swing.JButton();
         cmdIspis = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         cmdZatvori = new javax.swing.JButton();
@@ -314,11 +324,40 @@ public class NapredniPregledRacuna extends BasicView
         jScrollPane2 = new javax.swing.JScrollPane();
         gridStavke = new javax.swing.JTable();
 
+        reportsMenu.setName("reportsMenu"); // NOI18N
+
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(Acosoft.Processing.Pro3App.class).getContext().getActionMap(NapredniPregledRacuna.class, this);
+        prometPoArtiklima.setAction(actionMap.get("ispisPrometaMaterijalno")); // NOI18N
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(Acosoft.Processing.Pro3App.class).getContext().getResourceMap(NapredniPregledRacuna.class);
+        prometPoArtiklima.setIcon(resourceMap.getIcon("prometPoArtiklima.icon")); // NOI18N
+        prometPoArtiklima.setText(resourceMap.getString("prometPoArtiklima.text")); // NOI18N
+        prometPoArtiklima.setName("prometPoArtiklima"); // NOI18N
+        reportsMenu.add(prometPoArtiklima);
+
+        prometPoNacinuPlacanja.setAction(actionMap.get("ispisPrometa")); // NOI18N
+        prometPoNacinuPlacanja.setIcon(resourceMap.getIcon("prometPoNacinuPlacanja.icon")); // NOI18N
+        prometPoNacinuPlacanja.setText(resourceMap.getString("prometPoNacinuPlacanja.text")); // NOI18N
+        prometPoNacinuPlacanja.setName("prometPoNacinuPlacanja"); // NOI18N
+        reportsMenu.add(prometPoNacinuPlacanja);
+
+        prometPoRacunima.setAction(actionMap.get("ispisPrometaPoRacunima")); // NOI18N
+        prometPoRacunima.setIcon(resourceMap.getIcon("prometPoNacinuPlacanja.icon")); // NOI18N
+        prometPoRacunima.setText(resourceMap.getString("prometPoRacunima.text")); // NOI18N
+        prometPoRacunima.setName("prometPoRacunima"); // NOI18N
+        reportsMenu.add(prometPoRacunima);
+
+        jSeparator4.setName("jSeparator4"); // NOI18N
+        reportsMenu.add(jSeparator4);
+
+        zakljucakKnjigePopisa.setAction(actionMap.get("dodajZapisKnjigePopisa")); // NOI18N
+        zakljucakKnjigePopisa.setText(resourceMap.getString("zakljucakKnjigePopisa.text")); // NOI18N
+        zakljucakKnjigePopisa.setName("zakljucakKnjigePopisa"); // NOI18N
+        reportsMenu.add(zakljucakKnjigePopisa);
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(Acosoft.Processing.Pro3App.class).getContext().getResourceMap(NapredniPregledRacuna.class);
         setTitle(resourceMap.getString("napredni-pregled-racuna-v2.title")); // NOI18N
         setMinimumSize(new java.awt.Dimension(480, 320));
         setName("napredni-pregled-racuna-v2"); // NOI18N
@@ -336,7 +375,6 @@ public class NapredniPregledRacuna extends BasicView
         txtRaspon.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel2.add(txtRaspon);
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(Acosoft.Processing.Pro3App.class).getContext().getActionMap(NapredniPregledRacuna.class, this);
         cmdOsvjezi.setAction(actionMap.get("osvjeziPregledRacuna")); // NOI18N
         cmdOsvjezi.setText(resourceMap.getString("cmdOsvjezi.text")); // NOI18N
         cmdOsvjezi.setName("cmdOsvjezi"); // NOI18N
@@ -376,22 +414,6 @@ public class NapredniPregledRacuna extends BasicView
         jSeparator2.setName("jSeparator2"); // NOI18N
         jSeparator2.setPreferredSize(new java.awt.Dimension(6, 30));
         jPanel2.add(jSeparator2);
-
-        cmdPromet1.setAction(actionMap.get("ispisPrometaMaterijalno")); // NOI18N
-        cmdPromet1.setText(resourceMap.getString("cmdPromet1.text")); // NOI18N
-        cmdPromet1.setToolTipText(resourceMap.getString("cmdPromet1.toolTipText")); // NOI18N
-        cmdPromet1.setMaximumSize(new java.awt.Dimension(85, 30));
-        cmdPromet1.setName("cmdPromet1"); // NOI18N
-        cmdPromet1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel2.add(cmdPromet1);
-
-        cmdPromet.setAction(actionMap.get("ispisPrometa")); // NOI18N
-        cmdPromet.setText(resourceMap.getString("cmdPromet.text")); // NOI18N
-        cmdPromet.setToolTipText(resourceMap.getString("cmdPromet.toolTipText")); // NOI18N
-        cmdPromet.setMaximumSize(new java.awt.Dimension(85, 30));
-        cmdPromet.setName("cmdPromet"); // NOI18N
-        cmdPromet.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel2.add(cmdPromet);
 
         cmdIspis.setText(resourceMap.getString("cmdIspis.text")); // NOI18N
         cmdIspis.setMaximumSize(new java.awt.Dimension(85, 30));
@@ -434,6 +456,7 @@ public class NapredniPregledRacuna extends BasicView
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         gridRacuni.setAutoCreateRowSorter(true);
+        gridRacuni.setComponentPopupMenu(reportsMenu);
         gridRacuni.setName("gridRacuni"); // NOI18N
         gridRacuni.setRowHeight(35);
         gridRacuni.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -629,6 +652,22 @@ public class NapredniPregledRacuna extends BasicView
     public Task ispisPrometa() {
         return new IspisPrometaTask(org.jdesktop.application.Application.getInstance(Acosoft.Processing.Pro3App.class), 0);
     }
+    
+    private List<Racun> getOdabraniRacuni()
+    {
+        List<Racun> racuni = new ArrayList<Racun>();
+        
+        DataModel<Racun> model = (DataModel<Racun>) gridRacuni.getModel();
+            
+        for(int index : gridRacuni.getSelectedRows())
+        {
+            Racun racun = model.getItem(gridRacuni.convertRowIndexToModel(index));
+            racuni.add(racun);
+        }
+        
+        return racuni;
+    }
+
 
     private class IspisPrometaTask extends org.jdesktop.application.Task<Object, Void> {
         
@@ -888,13 +927,51 @@ public class NapredniPregledRacuna extends BasicView
         }
     }
 
+    @Action
+    public void ispisPrometaPoRacunima() {
+        try {
+            JasperPrint report = ReportingServices.LoadReport(NapredniPregledRacuna.class, 
+                    "reports/promet-po-racunima.jasper", ReportingServices.getDefaultParams(), getOdabraniRacuni());
+            ReportingServices.ShowReport(report, "Ispis prometa po računima", "promet-po-racunima");
+        } catch (JRException ex) {
+            Logger.getLogger(NapredniPregledRacuna.class.getName()).log(Level.SEVERE, null, ex);
+            Tasks.showMessage("IZNIMKA: " + ex.getMessage());
+        }
+        
+    }
+
+    @Action
+    public void dodajZapisKnjigePopisa() {
+        List<Racun> racuni = this.getOdabraniRacuni();
+        double ukupno = 0;
+        
+        for (Racun racun : racuni) {
+            for (Stavke stavka : racun.getStavke()) {
+                if(stavka.getRobaInfo().getNabavnaCijena() > 0 || stavka.getRobaInfo().getNormativi().size() > 0)
+                {
+                    ukupno += stavka.getUkupno();
+                }
+            }
+        }
+        
+        KnjigaPopisa knjiga = new KnjigaPopisa();
+        
+        knjiga.setPromet(ukupno);
+        knjiga.setDokument("Zaključak prometa");
+        
+        EntityManager man = Persistence.createEntityManagerFactory().createEntityManager();
+        man.getTransaction().begin();
+        man.persist(knjiga);
+        man.getTransaction().commit();
+        
+        Tasks.showMessage("Zaključak prometa robe je dodan u knjigu popisa");
+    }
+
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdIspis;
     private javax.swing.JButton cmdOsvjezi;
-    private javax.swing.JButton cmdPromet;
-    private javax.swing.JButton cmdPromet1;
     private javax.swing.JButton cmdZatvori;
     private javax.swing.JTable gridRacuni;
     private javax.swing.JTable gridStavke;
@@ -906,8 +983,14 @@ public class NapredniPregledRacuna extends BasicView
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel panCommands;
+    private javax.swing.JMenuItem prometPoArtiklima;
+    private javax.swing.JMenuItem prometPoNacinuPlacanja;
+    private javax.swing.JMenuItem prometPoRacunima;
+    private javax.swing.JPopupMenu reportsMenu;
     private javax.swing.JTextField txtRaspon;
+    private javax.swing.JMenuItem zakljucakKnjigePopisa;
     // End of variables declaration//GEN-END:variables
 }

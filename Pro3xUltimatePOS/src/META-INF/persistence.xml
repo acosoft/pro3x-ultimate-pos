@@ -26,6 +26,7 @@
     <class>Acosoft.Processing.DataBox.PotStavkaRacuna</class>
     <class>Acosoft.Processing.DataBox.KarticaStavkeNormativaRacuna</class>
     <class>Acosoft.Processing.DataBox.Blagajna</class>
+    <class>Acosoft.Processing.DataBox.KnjigaPopisa</class>
     <properties>
       <property name="eclipselink.jdbc.password" value=""/>
       <property name="eclipselink.jdbc.user" value=""/>

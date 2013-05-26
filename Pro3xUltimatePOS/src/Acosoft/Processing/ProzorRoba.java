@@ -27,8 +27,11 @@ import Pro3x.BasicView;
 import Pro3x.Configuration.General;
 import Pro3x.Live.ArtikalEvents;
 import Pro3x.View.PromjenaOpisaArtikla;
+import java.math.BigDecimal;
+import java.text.MessageFormat;
 import java.text.NumberFormat;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.swing.JTextField;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
@@ -45,10 +48,13 @@ public class ProzorRoba extends BasicView {
     private EntityManager manager;
     
     private NumberFormat n2d;
+    private boolean noviArtikal = false;
+    private double staraCijena = 0D;
     
     public ProzorRoba()
     {
         this(Pro3x.Persistence.createEntityManagerFactory().createEntityManager(), noviArtikal());
+        noviArtikal = true;
         
         if(comGrupa.getItemCount() > 0)
             comGrupa.setSelectedIndex(0);
@@ -113,6 +119,8 @@ public class ProzorRoba extends BasicView {
         procjenaMarze.setText(nf.format(roba.izracunajMarzu() * 100));
         prodajnaBezPoreza.setText(nf.format(roba.getCijenaBezPoreza()));
         prodajnaUkupno.setText(n2d.format(roba.getMaloprodajnaCijenaZaokruzena()));
+        
+        staraCijena = roba.getMaloprodajnaCijenaZaokruzena();
         
         getRootPane().setDefaultButton(cmdSpremi);
     }
@@ -820,6 +828,49 @@ public class ProzorRoba extends BasicView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void spremiKnjiguPopisa()
+    {
+        double stanje = getStanje();
+        
+        if(noviArtikal == false && stanje > 0 && getNabavna() > 0)
+        {
+            double promjenaCijene = getModel().getMaloprodajnaCijenaZaokruzena() - staraCijena;
+            
+            if(promjenaCijene != 0)
+            {
+                KnjigaPopisa knjiga = new KnjigaPopisa();
+                knjiga.setDokument(MessageFormat.format("Promjena cijene, {0}, količina {1} {2}", getModel().getNaziv(), stanje, getModel().getMjera()));
+                knjiga.setZaduzenje(stanje * promjenaCijene);
+
+                getProManager().persist(knjiga);
+                
+                Tasks.showMessage("Zapis o promjeni cijene je dodan u knjigu popisa");
+            }
+        }
+    }
+    
+    private double getStanje()
+    {
+        Query stanje = getProManager().createNamedQuery("Roba.stanje");
+        stanje.setParameter("roba", getModel());
+        Object result[] = (Object[]) stanje.getSingleResult();
+        
+        if(result != null)
+        {
+            Double ulaz = (Double)result[0];
+            Double izlaz = (Double)result[1];
+
+            if(ulaz == null) ulaz = 0D;
+            if(izlaz == null) izlaz = 0D;
+            
+            return ulaz - izlaz;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
     private void SpremiPromjene(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SpremiPromjene
     {//GEN-HEADEREND:event_SpremiPromjene
         Roba x = getModel();
@@ -844,6 +895,9 @@ public class ProzorRoba extends BasicView {
         getProManager().getTransaction().begin();
 
         getProManager().persist(x);
+        
+        spremiKnjiguPopisa();
+        
         getProManager().getTransaction().commit();
 
         getProManager().refresh(x);

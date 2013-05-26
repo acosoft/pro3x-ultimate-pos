@@ -248,7 +248,7 @@ public class StavkaKalkulacije implements Serializable
         this.fakturnaBezPoreza = 0D;
         this.fakturnaSaPorezom = 0D;
     }
-
+    
     public Double getPoreznaStopa()
     {
         return poreznaStopa;
@@ -307,7 +307,7 @@ public class StavkaKalkulacije implements Serializable
         PromjeniCijenuSaPorezom(getCijenaBezPoreza() * (1 + getPoreznaStopa()));
         KalkulacijaPremaProdajnimCijenama();
     }
-
+    
     public Double getUkupno()
     {
         return ukupno;
@@ -531,7 +531,7 @@ public class StavkaKalkulacije implements Serializable
     {
         return artikal;
     }
-
+    
     public void setArtikal(Roba artikal)
     {
         Roba oldArtikal = this.artikal;

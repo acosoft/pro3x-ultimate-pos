@@ -49,7 +49,7 @@ public class General
     private static final boolean koristiMigracijuArtikala = isActive("koristiMigracijuArtikala"); //false;
     private static final boolean koristiZapisnikePromjeneCijena = isActive("koristiZapisnikePromjeneCijena"); //true;
     private static final boolean koristiTehnickuPodrsku = isActive("koristiTehnickuPodrsku"); //false;
-    private static final boolean korisniKnjiguPopisa = false;
+    private static final boolean korisniKnjiguPopisa = isActive("knjigaPopisa");
     private static final boolean koristiGotovinskeTransakcije = isActive("koristiGotovinskeTransakcije"); //true;
     private static final boolean koristiUsporedivanjeSkladista = isActive("koristiUsporedivanjeSkladista"); //false;
 

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="Datum" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Logo" class="java.awt.Image" isForPrompting="false"/>
+	<parameter name="Zaglavlje" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pocetak" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[pocetak]]></parameterDescription>
+	</parameter>
+	<parameter name="kraj" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[kraj]]></parameterDescription>
+	</parameter>
+	<queryString language="ejbql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="datum" class="java.util.Date">
+		<fieldDescription><![CDATA[datum]]></fieldDescription>
+	</field>
+	<field name="dokument" class="java.lang.String">
+		<fieldDescription><![CDATA[dokument]]></fieldDescription>
+	</field>
+	<field name="zaduzenje" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[zaduzenje]]></fieldDescription>
+	</field>
+	<field name="promet" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[promet]]></fieldDescription>
+	</field>
+	<variable name="ukupno" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[new Double($F{zaduzenje}.doubleValue())]]></variableExpression>
+	</variable>
+	<variable name="ukupniPromet" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[new Double($F{promet}.doubleValue())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="170">
+			<image>
+				<reportElement x="0" y="0" width="160" height="100"/>
+				<imageExpression class="java.awt.Image"><![CDATA[$P{Logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="305" y="0" width="250" height="100"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{Zaglavlje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="120" width="433" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" Knjiga popisa "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="120" width="39" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="120" width="40" height="30"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="474" y="120" width="40" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="60" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Broj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="392" y="0" width="80" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zaduzenje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="162" y="0" width="229" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dokument]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="61" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datum]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="473" y="0" width="80" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Promet]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24">
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="392" y="2" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double($F{zaduzenje}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00">
+				<reportElement x="162" y="2" width="229" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dokument}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="0" y="2" width="60" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() > 1)]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd.MM.yyyy HH:mm">
+				<reportElement x="61" y="2" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{datum}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="473" y="2" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double($F{promet}.doubleValue())]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="80">
+			<staticText>
+				<reportElement x="0" y="21" width="555" height="20">
+					<printWhenExpression><![CDATA[Acosoft.Processing.Pro3Postavke.getPro3xPromocija()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pro3x Poslovne Aplikacije]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="555" height="20">
+					<printWhenExpression><![CDATA[Acosoft.Processing.Pro3Postavke.getPro3xPromocija()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[http://www.pro3x.com]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1">
+					<printWhenExpression><![CDATA[Acosoft.Processing.Pro3Postavke.getPro3xPromocija()]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="64">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1">
+					<printWhenExpression><![CDATA[Acosoft.Processing.Pro3Postavke.getPro3xPromocija()]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="392" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{ukupno}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="474" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{ukupniPromet}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

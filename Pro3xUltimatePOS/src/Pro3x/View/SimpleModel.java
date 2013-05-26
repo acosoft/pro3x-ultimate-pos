@@ -36,6 +36,16 @@ public abstract class SimpleModel<T> extends AbstractTableModel
         izmjenjene = new LinkedList<T>();
         izbrisane = new LinkedList<T>();
     }
+    
+    public void ispis()
+    {
+        
+    }
+    
+    public List<T> getItems()
+    {
+        return grupe;
+    }
 
     public final void refresh()
     {

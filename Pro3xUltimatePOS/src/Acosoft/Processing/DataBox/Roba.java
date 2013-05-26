@@ -45,7 +45,12 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "roba")
-@NamedQueries({@NamedQuery(name = "Roba.findAll", query = "SELECT r FROM Roba r"), @NamedQuery(name = "Roba.findByKljuc", query = "SELECT r FROM Roba r WHERE r.kljuc = :kljuc"), @NamedQuery(name = "Roba.findByNaziv", query = "SELECT r FROM Roba r WHERE r.naziv = :naziv"), @NamedQuery(name = "Roba.findByMjera", query = "SELECT r FROM Roba r WHERE r.mjera = :mjera"), @NamedQuery(name = "Roba.findByCijena", query = "SELECT r FROM Roba r WHERE r.cijena = :cijena")})
+@NamedQueries({@NamedQuery(name = "Roba.findAll", query = "SELECT r FROM Roba r"), 
+    @NamedQuery(name="Roba.stanje", query="SELECT sum(k.kolicinaUlaz), sum(k.kolicinaIzlaz) FROM RobaKartica k WHERE k.roba = :roba"), 
+    @NamedQuery(name = "Roba.findByKljuc", query = "SELECT r FROM Roba r WHERE r.kljuc = :kljuc"), 
+    @NamedQuery(name = "Roba.findByNaziv", query = "SELECT r FROM Roba r WHERE r.naziv = :naziv"), 
+    @NamedQuery(name = "Roba.findByMjera", query = "SELECT r FROM Roba r WHERE r.mjera = :mjera"), 
+    @NamedQuery(name = "Roba.findByCijena", query = "SELECT r FROM Roba r WHERE r.cijena = :cijena")})
 public class Roba implements Serializable
 {
     private static final long serialVersionUID = 1L;

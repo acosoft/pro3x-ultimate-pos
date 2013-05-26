@@ -21,6 +21,7 @@ import Acosoft.Processing.DataBox.ArtikalNormativ;
 import Acosoft.Processing.DataBox.Blagajna;
 import Acosoft.Processing.DataBox.KarticaStavkeNormativaRacuna;
 import Acosoft.Processing.DataBox.KarticaStavkeRacuna;
+import Acosoft.Processing.DataBox.KnjigaPopisa;
 import Acosoft.Processing.DataBox.Korisnik;
 import Acosoft.Processing.DataBox.PoreznaStavkaRacuna;
 import Acosoft.Processing.DataBox.PoreznaStopa;
@@ -2240,6 +2241,7 @@ public class SimpleInvoice extends BasicView {
                 
                 SpremiKarticuProizvoda((Stavke) stavka, proizvod);
                 SpremiKarticeNormativa((Stavke) stavka, proizvod);
+                SpremiKnjiguPopisa(stavka);
             }
             
             double iznosPoreza = 0;
@@ -2275,6 +2277,20 @@ public class SimpleInvoice extends BasicView {
 
             poreznaStavka.setOsnovica(poreznaStavka.getOsnovica() + osnovica);
             poreznaStavka.setIznos(poreznaStavka.getIznos() + osnovica * porez.getNormaliziraniPostotak());
+        }
+        
+        private void SpremiKnjiguPopisa(Stavke stavka)
+        {
+            if(stavka.getPopust() > 0 && (stavka.getRobaInfo().getNabavnaCijena() > 0 || stavka.getRobaInfo().getNormativi().size() > 0))
+            {
+                KnjigaPopisa knjiga = new KnjigaPopisa();
+                knjiga.setDokument(MessageFormat.format("Račun {0}, {1}, {2} {3}, popust {4}%",
+                        racun.getOznaka(), stavka.getRobaInfo().getNaziv(), stavka.getKolicina(), stavka.getMjera(),
+                        stavka.getPopust() * 100));
+                
+                knjiga.setZaduzenje(stavka.getUkupno() - stavka.getIznos());
+                manager.persist(knjiga);
+            }
         }
 
         private void SpremiKarticuProizvoda(Stavke stavka, Roba proizvod)

@@ -35,6 +35,7 @@ import Acosoft.Processing.Components.PercentCellEditor;
 import Acosoft.Processing.Components.PercentCellRenderer;
 import Acosoft.Processing.Components.Tasks;
 import Acosoft.Processing.DataBox.Dobavljac;
+import Acosoft.Processing.DataBox.KnjigaPopisa;
 import Acosoft.Processing.DataBox.Roba;
 import Acosoft.Processing.Pro3App;
 import Acosoft.Processing.Pro3Postavke;
@@ -53,12 +54,17 @@ import Pro3x.View.PregledKartice;
 import Pro3x.View.PromjenaOpisaArtikla;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import net.sf.jasperreports.engine.JRException;
@@ -69,7 +75,7 @@ import org.jdesktop.observablecollections.ObservableCollections;
  *
  * @author nonstop
  */
-public class IzmjenaKalkulacije extends javax.swing.JPanel
+public final class IzmjenaKalkulacije extends javax.swing.JPanel
 {
     private SimpleDateFormat sf = new SimpleDateFormat("dd.MM.yyyy");
     private boolean editMode = false;
@@ -125,11 +131,15 @@ public class IzmjenaKalkulacije extends javax.swing.JPanel
         }
     };
 
+    private boolean novaKalkulacija = false;
+    
     /** Creates new form IzmjenaKalkulacije */
     public IzmjenaKalkulacije()
     {
         this(new Kalkulacija(), Pro3x.Persistence.createEntityManagerFactory().createEntityManager());
 
+        novaKalkulacija = true;
+        
         if(Pro3App.getApplication().getSekvencaKalkulacije().isAutoSekvenca())
         {
             oznakaKalkulacije.setText("Automatska oznaka");
@@ -878,6 +888,26 @@ public class IzmjenaKalkulacije extends javax.swing.JPanel
             stavka.getKartice().add(kartica);
         }
     }
+    
+    private void spremiKnjiguPopisa()
+    {
+        KnjigaPopisa knjiga = new KnjigaPopisa();
+
+        knjiga.setDokument("Kalkulacija " + getKalkulacija().getOznakaKalkulacije());
+        knjiga.setDatum(getKalkulacija().getDatumIzrade());
+        knjiga.setZaduzenje(getKalkulacija().getUkupnaProdajnaVrijednost());
+
+        getManager().persist(knjiga);
+        
+        if(novaKalkulacija)
+        {
+            Tasks.showMessage("Ukupni iznos kalkulacije je dodan kao zaduđenje u knjigu popisa");
+        }
+        else
+        {
+            Tasks.showMessage("UPOZORENJE: Knjigu popisa morate ručno ažurirati u skladu sa promjenama kalkulacije!");
+        }
+    }
 
     @Action
     public void SpremiKalkulaciju()
@@ -897,6 +927,7 @@ public class IzmjenaKalkulacije extends javax.swing.JPanel
         }
 
         SpremiKartice();
+        spremiKnjiguPopisa();
 
         getManager().persist(getKalkulacija());
         getManager().getTransaction().commit();

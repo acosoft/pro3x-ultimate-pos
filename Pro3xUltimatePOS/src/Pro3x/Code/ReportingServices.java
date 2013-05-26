@@ -153,7 +153,7 @@ public class ReportingServices
         }
     }
     
-    private static Map getDefaultParams()
+    public static Map getDefaultParams()
     {
         HashMap params = new HashMap();
         try

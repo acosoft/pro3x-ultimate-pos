@@ -1,6 +1,63 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.6" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPopupMenu" name="reportsMenu">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="reportsMenu" noResource="true"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="prometPoArtiklima">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="Pro3x.View.NapredniPregledRacuna" id="ispisPrometaMaterijalno" methodName="ispisPrometaMaterijalno"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" resourceKey="prometPoArtiklima.icon"/>
+            <Property name="text" type="java.lang.String" resourceKey="prometPoArtiklima.text"/>
+            <Property name="name" type="java.lang.String" value="prometPoArtiklima" noResource="true"/>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="prometPoNacinuPlacanja">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="Pro3x.View.NapredniPregledRacuna" id="ispisPrometa" methodName="ispisPrometa"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" resourceKey="prometPoNacinuPlacanja.icon"/>
+            <Property name="text" type="java.lang.String" resourceKey="prometPoNacinuPlacanja.text"/>
+            <Property name="name" type="java.lang.String" value="prometPoNacinuPlacanja" noResource="true"/>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="prometPoRacunima">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="Pro3x.View.NapredniPregledRacuna" id="ispisPrometaPoRacunima" methodName="ispisPrometaPoRacunima"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" resourceKey="prometPoNacinuPlacanja.icon"/>
+            <Property name="text" type="java.lang.String" resourceKey="prometPoRacunima.text"/>
+            <Property name="name" type="java.lang.String" value="prometPoRacunima" noResource="true"/>
+          </Properties>
+        </MenuItem>
+        <Component class="javax.swing.JPopupMenu$Separator" name="jSeparator4">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="jSeparator4" noResource="true"/>
+          </Properties>
+        </Component>
+        <MenuItem class="javax.swing.JMenuItem" name="zakljucakKnjigePopisa">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="Pro3x.View.NapredniPregledRacuna" id="dodajZapisKnjigePopisa" methodName="dodajZapisKnjigePopisa"/>
+            </Property>
+            <Property name="text" type="java.lang.String" resourceKey="zakljucakKnjigePopisa.text"/>
+            <Property name="name" type="java.lang.String" value="zakljucakKnjigePopisa" noResource="true"/>
+          </Properties>
+        </MenuItem>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="iconifiable" type="boolean" value="true"/>
@@ -135,38 +192,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="cmdPromet1">
-              <Properties>
-                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-                  <action class="Pro3x.View.NapredniPregledRacuna" id="ispisPrometaMaterijalno" methodName="ispisPrometaMaterijalno"/>
-                </Property>
-                <Property name="text" type="java.lang.String" resourceKey="cmdPromet1.text"/>
-                <Property name="toolTipText" type="java.lang.String" resourceKey="cmdPromet1.toolTipText"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[85, 30]"/>
-                </Property>
-                <Property name="name" type="java.lang.String" value="cmdPromet1" noResource="true"/>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[100, 30]"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="cmdPromet">
-              <Properties>
-                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-                  <action class="Pro3x.View.NapredniPregledRacuna" id="ispisPrometa" methodName="ispisPrometa"/>
-                </Property>
-                <Property name="text" type="java.lang.String" resourceKey="cmdPromet.text"/>
-                <Property name="toolTipText" type="java.lang.String" resourceKey="cmdPromet.toolTipText"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[85, 30]"/>
-                </Property>
-                <Property name="name" type="java.lang.String" value="cmdPromet" noResource="true"/>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[100, 30]"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="cmdIspis">
               <Properties>
                 <Property name="text" type="java.lang.String" resourceKey="cmdIspis.text"/>
@@ -253,6 +278,9 @@
             <Component class="javax.swing.JTable" name="gridRacuni">
               <Properties>
                 <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="reportsMenu"/>
+                </Property>
                 <Property name="name" type="java.lang.String" value="gridRacuni" noResource="true"/>
                 <Property name="rowHeight" type="int" value="35"/>
                 <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
