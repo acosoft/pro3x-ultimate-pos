@@ -136,7 +136,7 @@
 						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
 					</reportElement>
 					<textElement verticalAlignment="Middle">
-						<font size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+						<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{adresa}]]></textFieldExpression>
 				</textField>
@@ -145,7 +145,7 @@
 						<printWhenExpression><![CDATA[new Boolean(!$F{maticniBroj}.equals(""))]]></printWhenExpression>
 					</reportElement>
 					<textElement verticalAlignment="Middle">
-						<font size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
+						<font fontName="Ubuntu" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{lokacija}]]></textFieldExpression>
 				</textField>
@@ -291,14 +291,14 @@
 				<textField>
 					<reportElement positionType="Float" x="0" y="115" width="198" height="10" isRemoveLineWhenBlank="true"/>
 					<textElement>
-						<font fontName="Ubuntu" size="8"/>
+						<font fontName="Ubuntu" size="8" pdfEncoding="Cp1250"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA["Operater: " + $F{operater}.getName()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement positionType="Float" x="0" y="125" width="198" height="10" isRemoveLineWhenBlank="true"/>
 					<textElement>
-						<font fontName="Ubuntu" size="8"/>
+						<font fontName="Ubuntu" size="8" pdfEncoding="Cp1250"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA["Način plaćanja: " + $F{template}.getOpisPlacanja()]]></textFieldExpression>
 				</textField>

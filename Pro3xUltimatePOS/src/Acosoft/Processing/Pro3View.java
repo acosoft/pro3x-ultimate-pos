@@ -478,7 +478,7 @@ public class Pro3View extends FrameView {
         logo.setAlignmentX(0.5F);
         logo.setDoubleBuffered(true);
         logo.setName("logo"); // NOI18N
-        logo.setBounds(190, 100, 510, 150);
+        logo.setBounds(220, 70, 510, 150);
         desk.add(logo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         mainPanel.add(desk, java.awt.BorderLayout.CENTER);

@@ -97,7 +97,7 @@ public class KnjigaPopisa implements Serializable
     public void setPromet(double promet)
     {
         this.promet = new BigDecimal(promet);
-        this.promet = this.promet.setScale(2, RoundingMode.DOWN);
+        this.promet = this.promet.setScale(2, RoundingMode.HALF_UP);
     }
 
     public int getRedniBroj() {
@@ -123,6 +123,6 @@ public class KnjigaPopisa implements Serializable
     public void setZaduzenje(double iznos)
     {
         zaduzenje = new BigDecimal(iznos);
-        zaduzenje = zaduzenje.setScale(2, RoundingMode.UP);
+        zaduzenje = zaduzenje.setScale(2, RoundingMode.HALF_UP);
     }
 }

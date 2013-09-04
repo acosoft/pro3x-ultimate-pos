@@ -49,9 +49,13 @@ public class SimpleModelKnjigePopisa extends SimpleModel<KnjigaPopisa>
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         if(columnIndex == 0)
+        {
             return Date.class;
+        }
         else if(columnIndex == 1)
+        {
             return String.class;
+        }
         else
             return Double.class;
     }
