@@ -580,26 +580,26 @@ public class Pro3App extends SingleFrameApplication {
             catch (IOException ex) { Logger.getLogger(Pro3App.class.getName()).log(Level.SEVERE, null, ex); }
         }
         
-//        try {
-//             System.out.print(getContext().getLocalStorage().getDirectory().getAbsolutePath());
-//            LocalStorage store = getContext().getLocalStorage();
-//            Dimension mainSize = (Dimension) store.load("pro3x-main-frame.xml");
-//            jf.setState(JFrame.NORMAL);
-//            
-//            int width = (int) mainSize.getWidth();
-//            int height = (int) mainSize.getHeight();
-//            
-//            jf.setSize(width, height);
-//            
-//            Point lokacija = (Point) store.load("pro3x-main-frame-location.xml");
-//            jf.setLocation(lokacija);
-//            jf.validate();
-//        } 
-//        catch (IOException ex) 
-//        {
-//            Logger.getLogger(Pro3App.class.getName()).log(Level.SEVERE, null, ex);
-//            jf.setSize(640, 480);
-//        }
+        try {
+            System.out.print(getContext().getLocalStorage().getDirectory().getAbsolutePath());
+
+            Dimension mainSize = (Dimension) store.load("pro3x-main-frame.xml");
+            jf.setState(JFrame.NORMAL);
+            
+            int width = (int) mainSize.getWidth();
+            int height = (int) mainSize.getHeight();
+            
+            jf.setSize(width, height);
+            
+            Point lokacija = (Point) store.load("pro3x-main-frame-location.xml");
+            jf.setLocation(lokacija);
+            jf.validate();
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(Pro3App.class.getName()).log(Level.SEVERE, null, ex);
+            jf.setSize(640, 480);
+        }
     }
     
     @Override
@@ -607,7 +607,7 @@ public class Pro3App extends SingleFrameApplication {
     {
         JFrame main = getApplication().getMainFrame();
         PrilagodiVelicinuProzora(main);
-        
+
         main.validate();
 
         //Pro3App app = getApplication();

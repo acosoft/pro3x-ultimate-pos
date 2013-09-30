@@ -18,7 +18,6 @@ package Acosoft.Processing.DataBox;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.CascadeType;
@@ -36,7 +35,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -52,7 +50,8 @@ import javax.persistence.Transient;
     @NamedQuery(name = "Stavke.findByRoba", query = "SELECT s FROM Stavke s WHERE s.roba = :roba"), 
     @NamedQuery(name = "Stavke.findByKolicina", query = "SELECT s FROM Stavke s WHERE s.kolicina = :kolicina"),
     @NamedQuery(name = "Stavke.findByPopust", query = "SELECT s FROM Stavke s WHERE s.racunKljuc.storniran IS NULL "
-        + "AND s.racunKljuc.izdan BETWEEN :pocetak AND :kraj AND s.popust <> 0")
+        + "AND s.racunKljuc.izdan BETWEEN :pocetak AND :kraj AND s.popust <> 0"),
+    @NamedQuery(name="Stavke.DnevniPorez", query="SELECT s.naziv, SUM(s.osnovica), SUM(s.iznos) FROM Racun r INNER JOIN r.porezneStavke s WHERE (r.izdan BETWEEN :pocetak AND :kraj) AND r.storniran IS null GROUP BY s.naziv")
 })
 @NamedQuery(name="Stavke.DnevniPromet", query="SELECT s.roba, SUM(s.kolicina), SUM(s.ukupno), SUM(s.iznos) FROM Racun r INNER JOIN r.stavke s WHERE r.template.tip = :vrstaUplate AND (r.izdan BETWEEN :pocetak AND :kraj) AND r.storniran IS null GROUP BY s.roba, s.cijena")
 public class Stavke implements Serializable

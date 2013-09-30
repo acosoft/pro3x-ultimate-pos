@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ispis računa" pageWidth="214" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="184" leftMargin="15" rightMargin="15" topMargin="10" bottomMargin="45" isFloatColumnFooter="true" isIgnorePagination="true">
+	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="Opis" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="Ukupno" class="java.lang.Double" isForPrompting="false"/>
 	<parameter name="Logo" class="java.io.InputStream" isForPrompting="false"/>
 	<parameter name="Zaglavlje" class="java.lang.String" isForPrompting="false"/>
-	<parameter name="Valuta" class="java.lang.String"/>
-	<parameter name="Osnovica" class="java.lang.Double"/>
-	<parameter name="Porez" class="java.lang.Double"/>
+	<parameter name="Valuta" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Osnovica" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="Porez" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="porezPoStopama" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="dataPoStopama" class="java.util.List" isForPrompting="false"/>
 	<queryString language="ejbql">
 		<![CDATA[]]>
 	</queryString>
@@ -33,19 +36,24 @@
 	<variable name="ukupnaOsnovica" class="java.lang.Double" resetType="Page" calculation="Sum">
 		<variableExpression><![CDATA[$F{osnovica}]]></variableExpression>
 	</variable>
+	<group name="porezi">
+		<groupExpression><![CDATA[$P{porezPoStopama}]]></groupExpression>
+		<groupFooter>
+			<band height="80">
+				<subreport isUsingCache="true">
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="10" width="184" height="50"/>
+					<dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($P{dataPoStopama})]]></dataSourceExpression>
+					<subreportExpression class="java.io.InputStream"><![CDATA[$P{porezPoStopama}]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
 	<group name="vrstaUplate">
 		<groupExpression><![CDATA[$F{vrsta}]]></groupExpression>
 		<groupHeader>
 			<band height="35">
 				<staticText>
-					<reportElement mode="Transparent" x="0" y="22" width="15" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Tahoma" size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[ Br.]]></text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Transparent" x="15" y="22" width="89" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+					<reportElement mode="Transparent" x="2" y="22" width="102" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Tahoma" size="8" isBold="true"/>
 					</textElement>
@@ -53,14 +61,14 @@
 				</staticText>
 				<staticText>
 					<reportElement mode="Transparent" x="144" y="22" width="40" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
+					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Tahoma" size="8" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Ukupno]]></text>
 				</staticText>
 				<staticText>
 					<reportElement mode="Transparent" x="104" y="22" width="40" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
+					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Tahoma" size="8" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Količina]]></text>
@@ -78,20 +86,20 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="50">
+			<band height="23">
 				<textField pattern="###0.00;-###0.00">
-					<reportElement positionType="Float" x="144" y="26" width="40" height="12"/>
+					<reportElement positionType="Float" x="144" y="1" width="40" height="12"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Tahoma" size="8" isBold="true"/>
 					</textElement>
 					<textFieldExpression class="java.lang.Double"><![CDATA[$V{ukupno}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="0" y="26" width="144" height="12"/>
+					<reportElement x="0" y="1" width="144" height="12"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Tahoma" size="8" isBold="true"/>
 					</textElement>
-					<textFieldExpression class="java.lang.String"><![CDATA["Ukupno ( " + $P{Valuta} + " )"]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA["Ukupno sa porezom ( " + $P{Valuta} + " )"]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="184" height="1"/>
@@ -99,34 +107,6 @@
 						<pen lineWidth="1.0"/>
 					</graphicElement>
 				</line>
-				<textField pattern="###0.00;-###0.00">
-					<reportElement positionType="Float" x="144" y="2" width="40" height="12"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Tahoma" size="8" isBold="false"/>
-					</textElement>
-					<textFieldExpression class="java.lang.Double"><![CDATA[$V{osnovica}]]></textFieldExpression>
-				</textField>
-				<textField pattern="###0.00;-###0.00">
-					<reportElement positionType="Float" x="144" y="14" width="40" height="12"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Tahoma" size="8" isBold="false"/>
-					</textElement>
-					<textFieldExpression class="java.lang.Double"><![CDATA[new Double($V{ukupno}.doubleValue() - $V{osnovica}.doubleValue())]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="2" width="144" height="12"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Tahoma" size="8"/>
-					</textElement>
-					<text><![CDATA[Osnovica]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="0" y="14" width="144" height="12"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Tahoma" size="8"/>
-					</textElement>
-					<text><![CDATA[Porez]]></text>
-				</staticText>
 			</band>
 		</groupFooter>
 	</group>

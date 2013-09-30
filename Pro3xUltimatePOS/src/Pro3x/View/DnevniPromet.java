@@ -34,10 +34,12 @@ import Acosoft.Processing.Pro3Postavke;
 import Acosoft.Processing.Pro3View;
 import Pro3x.Code.AgregacijaPrometa;
 import Pro3x.Code.VrsteUplate;
+import Pro3x.View.Models.TaxInfo;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,9 +51,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.Query;
 import javax.persistence.TemporalType;
 import javax.swing.JInternalFrame;
 import javax.swing.border.TitledBorder;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
@@ -85,7 +89,27 @@ public class DnevniPromet extends Pro3x.BasicView {
 //        IzracunUkupnogPrometa();
     }
 
+    private Date pocetniDatum;
+    private Date zavrsniDatum;
+    
     private String query;
+
+    public Date getPocetniDatum() {
+        return pocetniDatum;
+    }
+
+    public void setPocetniDatum(Date trenutniDatum) {
+        this.pocetniDatum = trenutniDatum;
+    }
+
+    public Date getZavrsniDatum() {
+        return zavrsniDatum;
+    }
+
+    public void setZavrsniDatum(Date zavrsniDatum) {
+        this.zavrsniDatum = zavrsniDatum;
+    }
+    
     private String getQuery()
     {
         return query;
@@ -503,7 +527,15 @@ public class DnevniPromet extends Pro3x.BasicView {
     {//GEN-HEADEREND:event_ParseDatum
         try
         {
-            datum.setText(sf.format(sf.parse(datum.getText())));
+            setPocetniDatum(sf.parse(datum.getText()));
+            
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(getPocetniDatum());
+            
+            cal.add(Calendar.DAY_OF_MONTH, 1);
+            setZavrsniDatum(cal.getTime());
+            
+            datum.setText(sf.format(getPocetniDatum()));
         }
         catch (ParseException ex)
         {
@@ -592,6 +624,8 @@ public class DnevniPromet extends Pro3x.BasicView {
 
         return data;
     }
+    
+    
 
     @Action
     public void PromjeniDatumPregledaPrometa()
@@ -762,6 +796,37 @@ public class DnevniPromet extends Pro3x.BasicView {
 
         return suma;
     }
+    
+    private List<TaxInfo> pripremiDnevniPorez() throws JRException 
+    {
+        Query taxQuery = proManager.createNamedQuery("Stavke.DnevniPorez");
+
+        taxQuery.setParameter("pocetak", getPocetniDatum());
+        taxQuery.setParameter("kraj", getZavrsniDatum());
+
+        List data = taxQuery.getResultList();
+        List<TaxInfo> result = new ArrayList<TaxInfo>();
+
+        for (Object item : data) 
+        {
+            Object[] itemData = (Object[]) item;
+            
+            TaxInfo info = new TaxInfo();
+            info.setName((String)itemData[0]);
+            info.setBase(((BigDecimal)itemData[1]).doubleValue());
+            info.setAmount(((BigDecimal)itemData[2]).doubleValue());
+            
+            result.add(info);
+        }
+        
+        return result;
+    }
+    
+    private InputStream getIzvjestajDnevniPorez() throws JRException
+    {
+
+        return DnevniPromet.class.getResourceAsStream("reports/daily-tax-amounts.jasper");
+    }
 
     @Action
     public void IspisPrometa()
@@ -781,7 +846,10 @@ public class DnevniPromet extends Pro3x.BasicView {
 
             params.put("Opis", "Dnevni promet: " + parsedDate);
             params.put("Valuta", info.getValuta());
-
+            
+            params.put("porezPoStopama", getIzvjestajDnevniPorez());
+            params.put("dataPoStopama", pripremiDnevniPorez());
+            
             try
             {
                 params.put("Logo", Pro3Postavke.getLogoStream());
