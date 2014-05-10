@@ -47,6 +47,7 @@ import Pro3x.Live.EventArgs;
 import Pro3x.Live.EventListener;
 import Pro3x.Live.KorisnikEvents;
 import Pro3x.Persistence;
+import Pro3x.View.Models.SimpleTableModelEvent;
 import java.awt.CardLayout;
 import java.awt.event.KeyEvent;
 import java.beans.PropertyVetoException;
@@ -330,15 +331,23 @@ public class SimpleInvoice extends BasicView {
             @Override
             public void tableChanged(TableModelEvent e) {
                 
-                SimpleModelStavki model = (SimpleModelStavki) grid.getModel();
-                
-                if(model.getBrojStavki() > 0)
+                if(e instanceof SimpleTableModelEvent && ((SimpleTableModelEvent)e).isClearDisplay())
                 {
-                    Stavke stavka = model.getStavke().get(e.getFirstRow());
-                    PromijeniPrikazKupcu(stavka.getRoba(), stavka.getKolicina(), stavka.getMaloprodajnaCijena());
+                    PromijeniPrikazKupcu("", 0, 0, "CLR");
                 }
+                else
+                {
+                    SimpleModelStavki model = (SimpleModelStavki) grid.getModel();
                 
-                IzracunajUkupno();
+                    if(model.getBrojStavki() > 0)
+                    {
+                        List<Stavke> stavke = model.getStavke();
+                        Stavke stavka = stavke.get(stavke.size() - 1);
+                        PromijeniPrikazKupcu(stavka.getRoba(), stavka.getKolicina(), stavka.getMaloprodajnaCijena() * (1 - stavka.getPopust()));
+                    }
+
+                    IzracunajUkupno();
+                }
             }
         });
     }

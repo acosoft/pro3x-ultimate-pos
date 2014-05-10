@@ -7,8 +7,10 @@ package Pro3x.View;
 import Acosoft.Processing.DataBox.Racun;
 import Acosoft.Processing.DataBox.Roba;
 import Acosoft.Processing.DataBox.Stavke;
+import Pro3x.View.Models.SimpleTableModelEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -29,7 +31,10 @@ public class SimpleModelStavki extends AbstractTableModel {
 
     public void setRacun(Racun racun) {
         this.racun = racun;
-        fireTableDataChanged();
+        
+        SimpleTableModelEvent event = new SimpleTableModelEvent(this);
+        event.setClearDisplay(true);
+        fireTableChanged(event);
     }
 
     public List<Stavke> getStavke() {
@@ -56,7 +61,10 @@ public class SimpleModelStavki extends AbstractTableModel {
         if(index < getStavke().size())
         {
             getStavke().remove(index);
-            fireTableDataChanged();
+            
+            SimpleTableModelEvent event = new SimpleTableModelEvent(this);
+            event.setClearDisplay(true);
+            fireTableChanged(event);
         }
     }
 

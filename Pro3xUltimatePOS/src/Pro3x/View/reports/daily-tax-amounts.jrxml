@@ -17,7 +17,7 @@
 			<staticText>
 				<reportElement x="0" y="0" width="184" height="20"/>
 				<textElement>
-					<font size="16"/>
+					<font size="16" pdfEncoding="Cp1250"/>
 				</textElement>
 				<text><![CDATA[Porez po stopama]]></text>
 			</staticText>
@@ -27,46 +27,46 @@
 			<staticText>
 				<reportElement x="0" y="21" width="64" height="15"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="8" isBold="true" isItalic="false"/>
+					<font fontName="Tahoma" size="8" isBold="true" isItalic="false" pdfEncoding="Cp1250"/>
 				</textElement>
 				<text><![CDATA[Naziv]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="64" y="21" width="60" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8" isBold="true" isItalic="false"/>
+					<font fontName="Tahoma" size="8" isBold="true" isItalic="false" pdfEncoding="Cp1250"/>
 				</textElement>
 				<text><![CDATA[Osnovica]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="124" y="21" width="60" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8" isBold="true" isItalic="false"/>
+					<font size="8" isBold="true" isItalic="false" pdfEncoding="Cp1250"/>
 				</textElement>
 				<text><![CDATA[Iznos]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="15">
+		<band height="16">
 			<textField>
 				<reportElement x="0" y="0" width="64" height="15"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8"/>
+					<font fontName="Tahoma" size="8" pdfEncoding="Cp1250"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00;-###0.00">
 				<reportElement x="64" y="0" width="60" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
+					<font fontName="Tahoma" size="8" pdfEncoding="Cp1250"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Double"><![CDATA[$F{base}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00;-###0.00">
 				<reportElement x="124" y="0" width="60" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
+					<font fontName="Tahoma" size="8" pdfEncoding="Cp1250"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Double"><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
