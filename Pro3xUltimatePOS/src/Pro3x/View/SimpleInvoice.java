@@ -10,6 +10,7 @@
  */
 package Pro3x.View;
 
+import Acosoft.Processing.Components.ExceptionView;
 import Acosoft.Processing.Components.InfoRacun;
 import Acosoft.Processing.Components.NumberCellEditor;
 import Acosoft.Processing.Components.NumberCellRenderer;
@@ -2477,6 +2478,11 @@ public class SimpleInvoice extends BasicView {
                 setMessage("Račun uspješno poslan na ispis");
                 setProgress(100);
             }
+        }
+
+        @Override
+        protected void failed(Throwable cause) {
+            new ExceptionView(cause).setVisible(true);
         }
     }
 

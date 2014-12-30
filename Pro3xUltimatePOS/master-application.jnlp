@@ -11,7 +11,7 @@
         <icon kind="shortcut" width="32" height="32" href="pro3x_medium.png" />
         <icon kind="shortcut" width="64" height="64" href="pro3x_large.png" />
         <shortcut>
-            <menu submenu="Pro3x Nautilus Edition"/>
+            <menu submenu="Pro3x Ultimate POS"/>
         </shortcut>
     </information>
     <update policy="prompt-update"/>

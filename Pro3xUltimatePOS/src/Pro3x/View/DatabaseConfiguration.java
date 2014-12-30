@@ -398,13 +398,13 @@ public class DatabaseConfiguration extends javax.swing.JInternalFrame
             try
             {
                 Thread.sleep(1000);
-                setMessage("Pro3x Nautilus Edition, gašenje .");
+                setMessage("Pro3x Ultimate POS, gašenje .");
                 setProgress(0.25F);
                 Thread.sleep(250);
-                setMessage("Pro3x Nautilus Edition, gašenje ..");
+                setMessage("Pro3x Ultimate POS, gašenje ..");
                 setProgress(0.50F);
                 Thread.sleep(250);
-                setMessage("Pro3x Nautilus Edition, gašenje ...");
+                setMessage("Pro3x Ultimate POS, gašenje ...");
                 setProgress(0.75F);
                 Thread.sleep(1000);
             }
